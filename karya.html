@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Aminatuzzuhriyah - Karya & Proyek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-bg': '#FDFBF7',
+                        'soft-text': '#4A4C49',
+                        'sage': '#9EAB8A',
+                        'sage-dark': '#7A8768',
+                        'taupe': '#D3CDC1',
+                        'card-bg': '#F5F3EC',
+                    },
+                    fontFamily: {
+                        'elegant': ['Lora', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-soft-bg text-soft-text font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-soft-bg/80 backdrop-blur-md border-b border-taupe/30 transition-all duration-300">
+        <div class="flex justify-between items-center py-5 px-10 max-w-6xl mx-auto">
+            <a href="index.html" class="font-elegant italic font-semibold text-2xl text-sage-dark tracking-wide">zuhriyah.</a>
+            <div class="space-x-8 text-sm font-medium hidden md:block">
+                <a href="index.html" class="relative group hover:text-sage-dark transition duration-300">Tentang</a>
+                <a href="karya.html" class="text-sage-dark font-semibold">Karya</a>
+                <a href="pengalaman.html" class="relative group hover:text-sage-dark transition duration-300">Pengalaman</a>
+                <a href="kompetisi.html" class="relative group hover:text-sage-dark transition duration-300">Kompetisi</a>
+                <a href="kontak.html" class="px-5 py-2.5 border border-sage text-sage-dark rounded-full hover:bg-sage hover:text-white transition-all duration-300">Mari Berbincang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Section -->
+    <section class="py-32 bg-card-bg min-h-screen">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16">
+                <h2 class="font-elegant text-4xl text-slate-800 mb-4">Ruang Karya & Proyek</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Neuro Motion -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/neuro-motion.png" alt="Neuro Motion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                            <span class="text-white text-sm font-medium">🏆 Juara 2 Lomba Web Design CITECH</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">UI/UX & Web Dev</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">Neuro Motion</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Website inovatif untuk skrining dan deteksi dini gangguan neurologis Parkinson.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Analisis Sentimen -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/analisis-sentimen.png" alt="Analisis Sentimen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Science</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">Analisis Sentimen Opini Publik DPR RI</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Pemodelan topik LDA dan klasifikasi sentimen Twitter menggunakan metodologi InSet Vader with Runtime Score Normalization.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Manajemen Risiko TI -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/mrti.png" alt="Manajemen Risiko TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Governance</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">Manajemen Risiko TI PN Balikpapan</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Analisis mendalam dan penyusunan rekomendasi perbaikan untuk mitigasi risiko infrastruktur teknologi informasi pengadilan.</p>
+                    </div>
+                </div>
+
+                <!-- 4. SPK Beasiswa BI -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/scpk.png" alt="Sistem Pendukung Keputusan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Software Engineering</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">SPK Penerima Beasiswa BI</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Pengembangan sistem cerdas berbasis kalkulasi multi-variabel untuk menentukan kelayakan mahasiswa penerima beasiswa Bank Indonesia.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Perencanaan Manajemen Kelurahan -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/pmpti.png" alt="Manajemen Proyek TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Project Management</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">SIM Kelurahan Sepinggan Baru</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Memimpin tim sebagai Project Manager & Scrum Master dalam menyusun backlog, sprint, dan perencanaan sistem informasi warga.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Harga Kendaraan Bekas -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/sains-data.png" alt="Analisis Harga Kendaraan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Analytics</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">Analisis Harga Kendaraan Bekas</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Pengolahan dataset kompleks dan pembuatan visualisasi interaktif menggunakan Python untuk menemukan faktor penentu harga pasar.</p>
+                    </div>
+                </div>
+
+                <!-- 7. Tata Kelola TI -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/tkmti.png" alt="Tata Kelola TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Governance</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">Tata Kelola TI PN Balikpapan</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Perancangan evaluasi komprehensif dan manajemen layanan TI untuk meningkatkan efisiensi operasional pengadilan negeri.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Portofolio Fotografi -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="galeri/cloud-domputing.png" alt="Web Fotografi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Web Development</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800">Website Portofolio Fotografi</h3>
+                        <p class="text-sm text-soft-text mb-4 font-light leading-relaxed">Pembangunan antarmuka responsif dan penetapan fitur utama perangkat lunak untuk wadah pameran karya visual.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

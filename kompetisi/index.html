@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Aminatuzzuhriyah - Kompetisi & Prestasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-bg': '#FDFBF7',
+                        'soft-text': '#4A4C49',
+                        'sage': '#9EAB8A',
+                        'sage-dark': '#7A8768',
+                        'taupe': '#D3CDC1',
+                        'card-bg': '#F5F3EC',
+                        'dark-bg': '#121212',
+                        'dark-card': '#1E1E1E',
+                        'dark-text': '#E0E0E0',
+                    },
+                    fontFamily: {
+                        'elegant': ['Lora', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-transition {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-justify-clean {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* Dark Mode Manual Overrides */
+        .dark body { background-color: #121212; color: #E0E0E0; }
+        .dark nav { background-color: rgba(18, 18, 18, 0.85) !important; border-color: rgba(255, 255, 255, 0.1); }
+        .dark .bg-card-bg { background-color: #1E1E1E !important; }
+        .dark .bg-soft-bg { background-color: #121212 !important; }
+        .dark .bg-white { background-color: #1E1E1E !important; color: #E0E0E0 !important; border-color: rgba(255,255,255,0.1) !important; }
+        .dark .text-slate-800 { color: #F3F4F6 !important; }
+        .dark .text-soft-text { color: #A0A0A0 !important; }
+        .dark .border-taupe\/30, .dark .border-taupe\/20 { border-color: rgba(255,255,255,0.15) !important; }
+    </style>
+</head>
+<body class="bg-soft-bg text-soft-text font-sans antialiased overflow-x-hidden page-transition">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-soft-bg/80 backdrop-blur-md border-b border-taupe/30 transition-all duration-300">
+        <div class="flex justify-between items-center py-5 px-10 max-w-6xl mx-auto">
+            <a href="../" class="font-elegant italic font-semibold text-2xl text-sage-dark tracking-wide">zuhriyah.</a>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <div class="space-x-8 hidden md:block">
+                    <a href="../" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navAbout">Tentang</a>
+                    <a href="../karya/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navWorks">Karya</a>
+                    <a href="../experience/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navExp">Pengalaman</a>
+                    <a href="../kompetisi/" class="text-sage-dark font-semibold" data-i18n="navComp">Kompetisi</a>
+                </div>
+                
+                <!-- Toggle Bahasa & Tema Berdampingan -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setLanguage('id')" id="lang-id" class="px-2.5 py-1 rounded-full transition-all text-sage-dark">ID</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition-all text-sage-dark/60">EN</button>
+                    </div>
+
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setTheme('light')" id="theme-light" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark" title="Light Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path>
+                            </svg>
+                        </button>
+                        <button onclick="setTheme('dark')" id="theme-dark" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60" title="Dark Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="../kontak/" class="hidden md:inline-block px-5 py-2.5 border border-sage text-sage-dark rounded-full hover:bg-sage hover:text-white transition-all duration-300" data-i18n="navChat">Mari Berbincang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Kompetisi Section -->
+    <section class="py-32 bg-white min-h-screen">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16">
+                <h2 class="font-elegant text-4xl text-slate-800 mb-4" data-i18n="compTitle">Kompetisi & Prestasi</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto mb-6"></div>
+                <p class="text-soft-text font-light max-w-2xl mx-auto text-justify-clean" data-i18n="compSub">Rekam jejak pencapaian dalam ajang perlombaan tingkat regional hingga nasional serta apresiasi akademik.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. CITECH UKM LAOS UNEJ -->
+                <div class="bg-card-bg rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all group border border-taupe/20">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="../lomba/citech.jpeg" alt="CITECH UNEJ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <span class="text-white text-sm font-medium" data-i18n="c1Badge">🏆 Juara 2 Kompetisi CITECH 2026</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase" data-i18n="c1Tag">Carnival Innovation Technology</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="c1Title">CITECH UKM LAOS UNEJ</h3>
+                        <p class="text-sm text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="c1Desc">Meraih Juara 2 pada ajang perlombaan inovasi teknologi yang diselenggarakan oleh Fakultas Ilmu Komputer Universitas Jember.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Krenova Balikpapan -->
+                <div class="bg-card-bg rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all group border border-taupe/20">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="../lomba/krenova.jpeg" alt="Krenova Balikpapan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <span class="text-white text-sm font-medium" data-i18n="c2Badge">🥇 Juara 1 Kategori Mahasiswa</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase" data-i18n="c2Tag">Krenova 2025</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="c2Title">Krenova Kota Balikpapan</h3>
+                        <p class="text-sm text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="c2Desc">Berhasil mendapatkan Juara 1 pada kategori mahasiswa dalam ajang Kreativitas dan Inovasi Masyarakat.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Debat Nasional Disporapar -->
+                <div class="bg-card-bg rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all group border border-taupe/20">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="../lomba/lomba debat nasional.jpeg" alt="Debat Nasional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <span class="text-white text-sm font-medium" data-i18n="c3Badge">🥈 Juara 2 Debat Nasional</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase" data-i18n="c3Tag">Lomba Nasional</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="c3Title">Debat Pemuda Nasional</h3>
+                        <p class="text-sm text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="c3Desc">Meraih Juara 2 dalam ajang perlombaan debat nasional yang diselenggarakan oleh Disporapar Balikpapan.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Mahasiswa Berprestasi ITK -->
+                <div class="bg-card-bg rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all group border border-taupe/20">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="../lomba/mahasiswa berprestasi itk.jpeg" alt="Mahasiswa Berprestasi ITK" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase" data-i18n="c4Tag">Penghargaan Akademik</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="c4Title">Mahasiswa Berprestasi ITK</h3>
+                        <p class="text-sm text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="c4Desc">Masuk dalam jajaran mahasiswa berprestasi di lingkungan Institut Teknologi Kalimantan.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Inovasi TTG Balikpapan Utara -->
+                <div class="bg-card-bg rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all group border border-taupe/20">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="../lomba/posyantek.jpeg" alt="Inovasi TTG" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-medium text-sage-dark tracking-wider uppercase" data-i18n="c5Tag">Teknologi Tepat Guna</span>
+                        <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="c5Title">Inovasi TTG Balikpapan Utara</h3>
+                        <p class="text-sm text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="c5Desc">Berpartisipasi aktif sebagai peserta dalam ajang Inovasi Teknologi Tepat Guna yang diselenggarakan oleh Balikpapan Utara.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Script Interaktif Toggle Bahasa & Tema -->
+    <script>
+        const translations = {
+            id: {
+                navAbout: "Tentang",
+                navWorks: "Karya",
+                navExp: "Pengalaman",
+                navComp: "Kompetisi",
+                navChat: "Mari Berbincang",
+                compTitle: "Kompetisi & Prestasi",
+                compSub: "Rekam jejak pencapaian dalam ajang perlombaan tingkat regional hingga nasional serta apresiasi akademik.",
+                
+                c1Badge: "🏆 Juara 2 Kompetisi CITECH 2026",
+                c1Tag: "Carnival Innovation Technology",
+                c1Title: "CITECH UKM LAOS UNEJ",
+                c1Desc: "Meraih Juara 2 pada ajang perlombaan inovasi teknologi yang diselenggarakan oleh Fakultas Ilmu Komputer Universitas Jember.",
+
+                c2Badge: "🥇 Juara 1 Kategori Mahasiswa",
+                c2Tag: "Krenova 2025",
+                c2Title: "Krenova Kota Balikpapan",
+                c2Desc: "Berhasil mendapatkan Juara 1 pada kategori mahasiswa dalam ajang Kreativitas dan Inovasi Masyarakat.",
+
+                c3Badge: "🥈 Juara 2 Debat Nasional",
+                c3Tag: "Lomba Nasional",
+                c3Title: "Debat Pemuda Nasional",
+                c3Desc: "Meraih Juara 2 dalam ajang perlombaan debat nasional yang diselenggarakan oleh Disporapar Balikpapan.",
+
+                c4Tag: "Penghargaan Akademik",
+                c4Title: "Mahasiswa Berprestasi ITK",
+                c4Desc: "Masuk dalam jajaran mahasiswa berprestasi di lingkungan Institut Teknologi Kalimantan.",
+
+                c5Tag: "Teknologi Tepat Guna",
+                c5Title: "Inovasi TTG Balikpapan Utara",
+                c5Desc: "Berpartisipasi aktif sebagai peserta dalam ajang Inovasi Teknologi Tepat Guna yang diselenggarakan oleh Balikpapan Utara."
+            },
+            en: {
+                navAbout: "About",
+                navWorks: "Works",
+                navExp: "Experience",
+                navComp: "Competitions",
+                navChat: "Let's Talk",
+                compTitle: "Competitions & Achievements",
+                compSub: "Track record of achievements in regional and national competitions as well as academic appreciation.",
+                
+                c1Badge: "🏆 2nd Place CITECH Competition 2026",
+                c1Tag: "Carnival Innovation Technology",
+                c1Title: "CITECH UKM LAOS UNEJ",
+                c1Desc: "Achieved 2nd Place in the technology innovation competition held by the Faculty of Computer Science, University of Jember.",
+
+                c2Badge: "🥇 1st Place Student Category",
+                c2Tag: "Krenova 2025",
+                c2Title: "Balikpapan City Krenova",
+                c2Desc: "Successfully won 1st Place in the student category at the Community Creativity and Innovation event.",
+
+                c3Badge: "🥈 2nd Place National Debate",
+                c3Tag: "National Competition",
+                c3Title: "National Youth Debate",
+                c3Desc: "Achieved 2nd Place in the national debate competition organized by Disporapar Balikpapan.",
+
+                c4Tag: "Academic Award",
+                c4Title: "Outstanding Student of ITK",
+                c4Desc: "Listed among outstanding students within the Institut Teknologi Kalimantan environment.",
+
+                c5Tag: "appropriate Technology",
+                c5Title: "North Balikpapan TTG Innovation",
+                c5Desc: "Actively participated as a contestant in the Appropriate Technology Innovation event organized by North Balikpapan."
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            const savedLang = localStorage.getItem('lang') || 'id';
+            setLanguage(savedLang);
+        });
+
+        function setTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem('theme', theme);
+
+            const btnLight = document.getElementById('theme-light');
+            const btnDark = document.getElementById('theme-dark');
+
+            if(theme === 'light') {
+                btnLight.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnDark.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnDark.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnLight.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('lang', lang);
+
+            const btnId = document.getElementById('lang-id');
+            const btnEn = document.getElementById('lang-en');
+            if(lang === 'id') {
+                btnId.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnEn.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnEn.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnId.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>

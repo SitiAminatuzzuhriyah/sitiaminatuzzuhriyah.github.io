@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Aminatuzzuhriyah - Beranda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-bg': '#FDFBF7',
+                        'soft-text': '#4A4C49',
+                        'sage': '#9EAB8A',
+                        'sage-dark': '#7A8768',
+                        'taupe': '#D3CDC1',
+                        'card-bg': '#F5F3EC',
+                        'dark-bg': '#121212',
+                        'dark-card': '#1E1E1E',
+                        'dark-text': '#E0E0E0',
+                    },
+                    fontFamily: {
+                        'elegant': ['Lora', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-transition {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .transition-all-custom {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .text-justify-clean {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* Dark Mode Manual Overrides */
+        .dark body { background-color: #121212; color: #E0E0E0; }
+        .dark nav { background-color: rgba(18, 18, 18, 0.85) !important; border-color: rgba(255, 255, 255, 0.1); }
+        .dark .bg-card-bg { background-color: #1E1E1E !important; }
+        .dark .bg-soft-bg { background-color: #121212 !important; }
+        .dark .bg-white { background-color: #1E1E1E !important; color: #E0E0E0 !important; border-color: rgba(255,255,255,0.1) !important; }
+        .dark .text-slate-800 { color: #F3F4F6 !important; }
+        .dark .text-slate-700 { color: #E0E0E0 !important; }
+        .dark .text-slate-500, .dark .text-soft-text { color: #A0A0A0 !important; }
+        .dark .border-taupe\/30 { border-color: rgba(255,255,255,0.15) !important; }
+        .dark .group:hover { border-color: #9EAB8A !important; }
+    </style>
+</head>
+<body class="bg-soft-bg text-soft-text font-sans antialiased overflow-x-hidden page-transition">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-soft-bg/80 backdrop-blur-md border-b border-taupe/30 transition-all duration-300">
+        <div class="flex justify-between items-center py-5 px-10 max-w-6xl mx-auto">
+            <a href="./" class="font-elegant italic font-semibold text-2xl text-sage-dark tracking-wide">zuhriyah.</a>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <div class="hidden md:flex space-x-8">
+                    <a href="./" class="text-sage-dark font-semibold" data-i18n="navAbout">Tentang</a>
+                    <a href="karya/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navWorks">Karya</a>
+                    <a href="experience/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navExp">Pengalaman</a>
+                    <a href="kompetisi/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navComp">Kompetisi</a>
+                </div>
+                
+                <!-- Toggle Bahasa & Tema Berdampingan -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setLanguage('id')" id="lang-id" class="px-2.5 py-1 rounded-full transition-all text-sage-dark">ID</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition-all text-sage-dark/60">EN</button>
+                    </div>
+
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setTheme('light')" id="theme-light" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark" title="Light Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path>
+                            </svg>
+                        </button>
+                        <button onclick="setTheme('dark')" id="theme-dark" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60" title="Dark Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="kontak/" class="hidden md:inline-block px-5 py-2.5 border border-sage text-sage-dark rounded-full hover:bg-sage hover:text-white transition-all duration-300" data-i18n="navChat">Mari Berbincang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-10 max-w-6xl mx-auto gap-12 pt-28 pb-12">
+        <div class="flex-1 space-y-6 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">
+            <h2 class="text-sage font-medium tracking-widest uppercase text-sm" data-i18n="heroGreeting">Selamat Datang,</h2>
+            <h1 class="font-elegant text-5xl md:text-6xl font-medium leading-tight text-slate-800">Siti Aminatuzzuhriyah</h1>
+            <h3 class="text-xl md:text-2xl font-light text-slate-500" data-i18n="heroTagline">
+                Menyatukan <span class="text-sage-dark font-medium italic">Data</span>, <span class="text-sage-dark font-medium italic">Manajemen TI</span>, & <span class="text-sage-dark font-medium italic">Desain</span>.
+            </h3>
+            <p class="text-soft-text font-light leading-relaxed max-w-lg text-lg text-justify-clean" data-i18n="heroDesc">
+                Mahasiswa Sistem Informasi ITK yang merangkai solusi melalui pengembangan web interaktif, tata kelola TI strategis, dan analisis data yang teliti.
+            </p>
+            <div class="pt-6 flex flex-wrap items-center gap-4">
+                <a href="#perkenalan" class="inline-flex items-center px-8 py-3 bg-sage text-white rounded-full font-medium hover:bg-sage-dark hover:-translate-y-1 shadow-lg shadow-sage/30 transition-all duration-300" data-i18n="btnExplore">
+                    Mulai Jelajahi
+                </a>
+                <a href="https://drive.google.com/drive/folders/1x5XVaB319XkCtWJr000KyrFHcD9jcuBP?usp=sharing" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 border border-sage text-sage-dark rounded-full font-medium hover:bg-sage/10 hover:-translate-y-1 transition-all duration-300" data-i18n="btnCv">
+                    Unduh CV
+                </a>
+            </div>
+        </div>
+        <div class="flex-1 flex justify-center opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">
+            <div class="relative">
+                <div class="absolute inset-0 bg-taupe/40 rounded-full blur-3xl scale-110"></div>
+                <img src="galeri/fotodiri.jpg" alt="Foto Siti" class="relative rounded-full w-72 h-72 md:w-96 md:h-96 object-cover shadow-2xl border-[6px] border-white animate-float">
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Perkenalan -->
+    <section id="perkenalan" class="py-28 bg-card-bg border-t border-taupe/30 scroll-mt-10">
+        <div class="max-w-4xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white">
+                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <source src="galeri/sapaan.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video.
+                    </video>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 space-y-4">
+                <span class="text-xs font-semibold text-sage-dark tracking-widest uppercase bg-sage/20 px-3 py-1 rounded-full" data-i18n="introBadge">Kenalan Yuk!</span>
+                <h2 class="font-elegant text-3xl md:text-4xl text-slate-800 leading-snug" data-i18n="introTitle">Haloo semuaa!!!! 👋</h2>
+                <p class="text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="introP1">
+                    Senang sekali bisa menyambut kamu di ruang digital kecilku ini! Kalau kamu lagi penasaran gimana caraku menggabungkan dunia data, teknologi, dan sentuhan kreatif, kamu ada di tempat yang pas banget.
+                </p>
+                <p class="text-soft-text font-light leading-relaxed text-justify-clean" data-i18n="introP2">
+                    Biasanya aku sibuk ngulik kode, merancang tata kelola sistem, atau mikirin strategi seru buat proyek-proyek inovatif. Yuk, gulir terus atau jelajahi menu di atas buat kenalan lebih dekat sama karya dan perjalananku!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Keahlian & Tools (Telah Disesuaikan Sempurna untuk Dark & Light Mode) -->
+    <section class="py-28 bg-soft-bg border-t border-taupe/30 relative">
+        <div class="max-w-5xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold text-sage-dark tracking-widest uppercase bg-sage/20 px-3.5 py-1.5 rounded-full" data-i18n="skillsBadge">Keahlian & Perangkat</span>
+                <h2 class="font-elegant text-3xl md:text-4xl text-slate-800 mt-2 mb-3" data-i18n="skillsTitle">Tools & Bahasa yang Dikuasai</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto mb-3"></div>
+                <p class="text-xs md:text-sm text-slate-500 font-light tracking-wide" data-i18n="skillsSub">
+                    Perangkat dan teknologi pilihan yang menunjang eksplorasi data, pengembangan sistem, serta kreativitas
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                
+                <!-- Kategori 1: Data & Analisis -->
+                <div>
+                    <h3 class="font-elegant text-lg text-slate-800 mb-4 flex items-center gap-2 border-b border-taupe/30 pb-2">
+                        <span class="w-2 h-2 rounded-full bg-sage"></span>
+                        <span data-i18n="catData">Data & Analisis</span>
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <!-- Power BI -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="11" width="4" height="10" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Power BI</span>
+                        </div>
+                        <!-- Tableau -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Tableau</span>
+                        </div>
+                        <!-- Python -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M2 12h4m12 0h4m-2-6h-4a2 2 0 00-2 2v4a2 2 0 002 2h4m-12 0H6a2 2 0 01-2-2v-4a2 2 0 012-2h4"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Python</span>
+                        </div>
+                        <!-- Looker Studio -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Looker Studio</span>
+                        </div>
+                        <!-- Streamlit -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Streamlit</span>
+                        </div>
+                        <!-- RapidMiner -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8m-4-4h8"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">RapidMiner</span>
+                        </div>
+                        <!-- SPSS -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">SPSS</span>
+                        </div>
+                        <!-- Microsoft Excel -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Microsoft Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 2: Pengembangan & Manajemen Proyek -->
+                <div>
+                    <h3 class="font-elegant text-lg text-slate-800 mb-4 flex items-center gap-2 border-b border-taupe/30 pb-2">
+                        <span class="w-2 h-2 rounded-full bg-sage"></span>
+                        <span data-i18n="catDev">Pengembangan & Manajemen Proyek</span>
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <!-- JavaScript -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <span class="font-mono font-bold text-sm">JS</span>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">JavaScript</span>
+                        </div>
+                        <!-- GitHub & Git -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">GitHub & Git</span>
+                        </div>
+                        <!-- Taiga -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Taiga</span>
+                        </div>
+                        <!-- PostgreSQL -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 3: Tata Kelola & Framework TI -->
+                <div>
+                    <h3 class="font-elegant text-lg text-slate-800 mb-4 flex items-center gap-2 border-b border-taupe/30 pb-2">
+                        <span class="w-2 h-2 rounded-full bg-sage"></span>
+                        <span data-i18n="catGov">Tata Kelola & Framework TI</span>
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <!-- COBIT -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2z"/><path d="M12 22v-6.5M12 12l10-6.5M2 5.5l10 6.5"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">COBIT Framework</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori 4: Desain, Presentasi, & Produktivitas -->
+                <div>
+                    <h3 class="font-elegant text-lg text-slate-800 mb-4 flex items-center gap-2 border-b border-taupe/30 pb-2">
+                        <span class="w-2 h-2 rounded-full bg-sage"></span>
+                        <span data-i18n="catDesign">Desain, Presentasi, & Produktivitas</span>
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <!-- Canva -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Canva</span>
+                        </div>
+                        <!-- CapCut -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">CapCut</span>
+                        </div>
+                        <!-- Google Docs / Google Spreadsheets -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Google Docs & Spreadsheet</span>
+                        </div>
+                        <!-- Microsoft PowerPoint -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h6"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Microsoft PowerPoint</span>
+                        </div>
+                        <!-- Microsoft Word -->
+                        <div class="bg-white border border-taupe/30 hover:border-sage rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-card-bg dark:bg-[#2A2A2A] flex items-center justify-center text-sage-dark group-hover:bg-sage group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-700 tracking-wide">Microsoft Word</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section BARU: Best Data Projects (Persis Seperti Referensi Gambar: Rame Ikon Data, Grafik, & Garis Meliuk Tanpa Menabrak Teks) -->
+    <section class="py-32 bg-white border-t border-taupe/30 relative overflow-hidden">
+        
+        <!-- Background Dekoratif Penuh Ikon Data, Grafik, & Garis Meliuk Persis Referensi -->
+        <div class="absolute inset-0 pointer-events-none text-sage/40 overflow-hidden">
+            
+            <!-- Garis Tipis Meliuk / Alur Data Mengalir di Background -->
+            <svg class="absolute inset-0 w-full h-full" fill="none" viewBox="0 0 1440 950" preserveAspectRatio="none">
+                <path d="M-50,80 C300,260 550,-40 950,200 C1250,360 1350,80 1500,140" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.6"/>
+                <path d="M-50,880 C400,720 700,980 1100,740 C1300,620 1380,840 1500,800" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+
+            <!-- IKON & ILUSTRASI DATA DI AREA ATAS & SAMPING (Aman dari Teks Judul & Kartu) -->
+            <!-- 1. Bar Chart (Kiri Atas) -->
+            <div class="absolute top-10 left-12 md:left-24 p-3 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm flex items-end gap-1.5 w-24 h-20 opacity-80">
+                <div class="w-3.5 bg-sage/60 h-8 rounded-t-sm"></div>
+                <div class="w-3.5 bg-sage-dark/80 h-14 rounded-t-sm"></div>
+                <div class="w-3.5 bg-sage/60 h-10 rounded-t-sm"></div>
+                <div class="w-3.5 bg-sage-dark h-16 rounded-t-sm"></div>
+            </div>
+
+            <!-- 2. Pie / Donut Chart (Kanan Atas) -->
+            <div class="absolute top-12 right-12 md:right-28 p-3 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm flex items-center justify-center w-20 h-20 opacity-80">
+                <div class="w-12 h-12 rounded-full border-4 border-sage-dark/60 border-t-sage flex items-center justify-center">
+                    <div class="w-4 h-4 rounded-full bg-sage/50"></div>
+                </div>
+            </div>
+
+            <!-- 3. Database Cylinder (Kanan Jauh Atas) -->
+            <div class="absolute top-28 right-8 md:right-12 p-3 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm flex flex-col gap-1 w-16 opacity-75">
+                <div class="h-3 border border-sage-dark rounded-full bg-sage/20"></div>
+                <div class="h-3 border border-sage-dark rounded-full bg-sage/20"></div>
+                <div class="h-3 border border-sage-dark rounded-full bg-sage/20"></div>
+            </div>
+
+            <!-- 4. Line Chart / Trend (Kiri Tengah Atas) -->
+            <div class="absolute top-36 left-8 md:left-14 p-2 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm w-24 h-16 opacity-75 flex items-center justify-center">
+                <svg class="w-full h-full text-sage-dark" fill="none" viewBox="0 0 80 40">
+                    <path d="M5,32 Q25,8 45,22 T75,8" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <circle cx="5" cy="32" r="2" fill="currentColor"/>
+                    <circle cx="45" cy="22" r="2" fill="currentColor"/>
+                    <circle cx="75" cy="8" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <!-- 5. Code Tag / Brackets (Kiri Atas Bawah Judul) -->
+            <div class="absolute top-44 left-36 md:left-56 p-2 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-xl shadow-sm opacity-80">
+                <span class="font-mono text-xs font-bold text-sage-dark">&lt;/&gt;</span>
+            </div>
+
+            <!-- 6. Search / Magnifying Glass (Kiri Bawah Header) -->
+            <div class="absolute top-64 left-16 md:left-32 p-2.5 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-full shadow-sm opacity-75">
+                <svg class="w-4 h-4 text-sage-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+
+            <!-- 7. Node Network / Scatter (Kiri Tengah) -->
+            <div class="absolute top-96 left-10 md:left-16 p-3 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm opacity-75 flex flex-col gap-2">
+                <div class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full bg-sage-dark"></div>
+                    <div class="w-6 h-[1px] bg-sage-dark"></div>
+                    <div class="w-2.5 h-2.5 rounded-full border border-sage-dark"></div>
+                </div>
+                <div class="flex items-center gap-2 ml-4">
+                    <div class="w-6 h-[1px] bg-sage-dark"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-sage"></div>
+                </div>
+            </div>
+
+            <!-- 8. Binary Numbers (Kiri Bawah) -->
+            <div class="absolute bottom-48 left-10 md:left-20 font-mono text-[11px] font-semibold text-sage-dark/60 tracking-widest leading-loose">
+                10101<br>01010<br>10101
+            </div>
+
+            <!-- 9. Magnifier / Data Search (Kanan Atas Kartu) -->
+            <div class="absolute top-48 right-32 md:right-52 p-2 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-xl shadow-sm opacity-80">
+                <svg class="w-4 h-4 text-sage-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+
+            <!-- 10. Database Stack (Kanan Atas Kartu) -->
+            <div class="absolute top-64 right-16 md:right-28 p-2.5 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm opacity-80 flex flex-col gap-1 w-14">
+                <div class="h-2.5 border border-sage-dark rounded-full"></div>
+                <div class="h-2.5 border border-sage-dark rounded-full"></div>
+                <div class="h-2.5 border border-sage-dark rounded-full"></div>
+            </div>
+
+            <!-- 11. Spreadsheet / Table Icon (Kanan Tengah) -->
+            <div class="absolute top-96 right-12 md:right-20 p-2.5 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm opacity-80">
+                <svg class="w-5 h-5 text-sage-dark" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+            </div>
+
+            <!-- 12. Code Tag (Kanan Bawah Kartu) -->
+            <div class="absolute bottom-40 right-16 md:right-28 p-2.5 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-xl shadow-sm opacity-80">
+                <span class="font-mono text-xs font-bold text-sage-dark">&lt;/&gt;</span>
+            </div>
+
+            <!-- 13. Trend Up (Kanan Bawah) -->
+            <div class="absolute bottom-56 right-36 md:right-56 p-2 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm opacity-75">
+                <svg class="w-6 h-6 text-sage-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+
+            <!-- 14. Bar Chart & Gear (Bawah Tengah Kiri) -->
+            <div class="absolute bottom-12 left-32 md:left-56 p-2.5 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm opacity-80 flex items-end gap-1 w-20 h-16">
+                <div class="w-3 bg-sage h-6 rounded-t-sm"></div>
+                <div class="w-3 bg-sage-dark h-12 rounded-t-sm"></div>
+                <div class="w-3 bg-sage h-9 rounded-t-sm"></div>
+            </div>
+
+            <!-- 15. Database Cylinders (Bawah Tengah Kanan) -->
+            <div class="absolute bottom-12 right-48 md:right-72 p-2.5 bg-white/80 backdrop-blur-sm border border-taupe/40 rounded-2xl shadow-sm opacity-80 flex flex-col gap-1 w-12">
+                <div class="h-2 border border-sage-dark rounded-full"></div>
+                <div class="h-2 border border-sage-dark rounded-full"></div>
+            </div>
+
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 md:px-10 relative z-10">
+            <div class="text-center mb-14">
+                <span class="text-xs font-semibold text-sage-dark tracking-widest uppercase bg-sage/15 px-3.5 py-1.5 rounded-full" data-i18n="bestProjBadge">Unggulan Data</span>
+                <h2 class="font-elegant text-3xl md:text-4xl text-slate-800 mt-2 mb-3" data-i18n="bestProjTitle">Best Data Projects</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto mb-3"></div>
+                <p class="text-xs md:text-sm text-slate-500 font-light tracking-wide" data-i18n="bestProjSub">
+                    Klik kartu proyek di bawah untuk menyelami detail cerita perjalanannya
+                </p>
+            </div>
+
+            <!-- Tampilan Awal: Dua Kartu Proyek (UHAMKA di Kiri, Sentimen di Kanan) -->
+            <div id="best-stacked-view" class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all-custom">
+                
+                <!-- Kartu Proyek 1 (Kiri): UHAMKA -->
+                <div onclick="openBestDetail(2)" class="bg-card-bg/95 backdrop-blur-md rounded-3xl p-5 shadow-md hover:shadow-xl border border-taupe/40 hover:border-sage transition-all duration-300 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 rounded-2xl overflow-hidden mb-4 bg-white shadow-inner">
+                            <img src="galeri/ak.png" alt="Performa Akademis UHAMKA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <span class="text-[11px] font-semibold text-sage-dark tracking-wider uppercase" data-i18n="proj2Cat">Machine Learning & Analisis Kuantitatif</span>
+                        <h4 class="font-elegant text-lg text-slate-800 mt-1 mb-2" data-i18n="proj2Title">Performa Akademis Mahasiswa UHAMKA</h4>
+                        <p class="text-xs text-soft-text font-light leading-relaxed text-justify-clean line-clamp-2" data-i18n="proj2DescShort">
+                            Sebuah batu loncatan yang sangat berarti, karena proyek ini menjadi pengalaman perdana aku terjun langsung mengolah data kompleks menggunakan metode Decision Tree.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-taupe/20 flex items-center justify-end text-xs text-sage-dark font-medium">
+                        <span data-i18n="clickToRead">Baca Kisah Proyek</span>
+                    </div>
+                </div>
+
+                <!-- Kartu Proyek 2 (Kanan): Analisis Sentimen -->
+                <div onclick="openBestDetail(1)" class="bg-card-bg/95 backdrop-blur-md rounded-3xl p-5 shadow-md hover:shadow-xl border border-taupe/40 hover:border-sage transition-all duration-300 cursor-pointer group flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 rounded-2xl overflow-hidden mb-4 bg-white shadow-inner">
+                            <img src="galeri/analisis-sentimen.png" alt="Analisis Sentimen" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <span class="text-[11px] font-semibold text-sage-dark tracking-wider uppercase" data-i18n="proj1Cat">Data Science & Skripsi</span>
+                        <h4 class="font-elegant text-lg text-slate-800 mt-1 mb-2" data-i18n="proj1Title">Analisis Sentimen Opini Publik DPR RI</h4>
+                        <p class="text-xs text-soft-text font-light leading-relaxed text-justify-clean line-clamp-2" data-i18n="proj1DescShort">
+                            Proyek monumental skripsi yang mempertemukan aku dengan hal-hal baru yang menantang, mulai dari Selenium untuk web scraping hingga VADER dan LDA.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-taupe/20 flex items-center justify-end text-xs text-sage-dark font-medium">
+                        <span data-i18n="clickToRead">Baca Kisah Proyek</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Tampilan Setelah Proyek Diklik: Split View Detail Kompak Estetik -->
+            <div id="best-split-view" class="hidden opacity-0 transform translate-y-4 transition-all-custom bg-card-bg rounded-3xl p-6 md:p-8 shadow-xl border border-taupe/30 relative z-20">
+                <button onclick="closeBestDetail()" class="absolute top-4 right-6 text-xs font-medium text-sage-dark hover:text-slate-800 flex items-center gap-1 bg-white/90 px-3 py-1.5 rounded-full shadow-sm transition">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                    <span data-i18n="backToChoiceBest">Kembali ke Pilihan Proyek</span>
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
+                    <div class="md:col-span-5 h-56 md:h-64 rounded-2xl overflow-hidden shadow-md bg-white">
+                        <img id="best-active-img" src="" alt="Detail Proyek" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:col-span-7 space-y-2.5">
+                        <span id="best-active-badge" class="text-xs font-semibold text-sage-dark tracking-widest uppercase bg-sage/20 px-3 py-1 rounded-full"></span>
+                        <h3 id="best-active-title" class="font-elegant text-xl md:text-2xl text-slate-800 pt-1"></h3>
+                        <p id="best-active-desc" class="text-xs md:text-sm text-soft-text font-light leading-relaxed text-justify-clean"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tautan Koleksi Karya & Proyek -->
+            <div class="text-center mt-12">
+                <a href="karya/" class="inline-flex items-center gap-2 px-6 py-2.5 border border-sage text-sage-dark rounded-full text-sm font-medium hover:bg-sage hover:text-white transition-all duration-300 shadow-sm">
+                    <span data-i18n="introLink">Lihat Koleksi Karya & Proyek Lainnya</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: Momen Paling Berarti (Stacked to Split View) -->
+    <section class="min-h-screen flex flex-col justify-center bg-card-bg py-16 overflow-hidden border-t border-taupe/30">
+        <div class="max-w-5xl mx-auto px-6 md:px-10 w-full">
+            <div class="text-center mb-8">
+                <span class="text-xs font-semibold text-sage-dark tracking-widest uppercase bg-sage/20 px-3 py-1 rounded-full" data-i18n="flashbackBadge">Kilas Balik</span>
+                <h2 class="font-elegant text-3xl md:text-4xl text-slate-800 mt-2 mb-2" data-i18n="flashbackTitle">Hal yang Paling Kubanggakan</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto mb-3"></div>
+                <p class="text-xs md:text-sm text-slate-500 font-light tracking-wide" data-i18n="flashbackSub">
+                    Klik foto kartu di bawah untuk membaca kisah lengkapnya
+                </p>
+            </div>
+
+            <!-- Tampilan Awal: Tiga Kartu Bertumpuk Menyamping -->
+            <div id="stacked-view" class="relative w-full max-w-2xl mx-auto h-[440px] flex items-center justify-center transition-all-custom">
+                
+                <!-- Kartu 1: Ketua -->
+                <div onclick="openDetail(1)" class="absolute w-72 md:w-88 bg-white rounded-3xl p-5 shadow-xl border border-taupe/30 transform -translate-x-20 md:-translate-x-32 -rotate-6 scale-90 opacity-80 hover:opacity-100 hover:rotate-0 hover:z-40 transition-all duration-300 cursor-pointer">
+                    <div class="h-52 md:h-60 rounded-2xl overflow-hidden mb-3 shadow-inner">
+                        <img src="galeri/ketua.jpeg" alt="Ketua" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-elegant text-lg text-slate-800 mb-1" data-i18n="card1Header">Menahkodai Himpunan</h4>
+                    <p class="text-[11px] text-sage-dark uppercase font-medium">Kabinet Istanava (2024-2025)</p>
+                </div>
+
+                <!-- Kartu 2: CITECH -->
+                <div onclick="openDetail(2)" class="absolute w-72 md:w-88 bg-white rounded-3xl p-5 shadow-2xl border border-taupe/30 transform rotate-0 scale-100 z-30 hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div class="h-52 md:h-60 rounded-2xl overflow-hidden mb-3 shadow-inner">
+                        <img src="galeri/juara2.jpeg" alt="CITECH" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-elegant text-lg text-slate-800 mb-1" data-i18n="card2Header">Juara 2 CITECH</h4>
+                    <p class="text-[11px] text-sage-dark uppercase font-medium" data-i18n="card2Sub">Masa Sidang & Wisuda</p>
+                </div>
+
+                <!-- Kartu 3: Pemateri -->
+                <div onclick="openDetail(3)" class="absolute w-72 md:w-88 bg-white rounded-3xl p-5 shadow-xl border border-taupe/30 transform translate-x-20 md:translate-x-32 rotate-6 scale-90 opacity-80 hover:opacity-100 hover:rotate-0 hover:z-40 transition-all duration-300 cursor-pointer">
+                    <div class="h-52 md:h-60 rounded-2xl overflow-hidden mb-3 shadow-inner">
+                        <img src="galeri/pemateri-4.jpeg" alt="Pemateri" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-elegant text-lg text-slate-800 mb-1" data-i18n="card3Header">Pemateri Open Talk SI</h4>
+                    <p class="text-[11px] text-sage-dark uppercase font-medium" data-i18n="card3Sub">Mentor Sebaya</p>
+                </div>
+
+            </div>
+
+            <!-- Tampilan Setelah Diklik: Foto di Kiri, Penjelasan di Kanan -->
+            <div id="split-view" class="hidden opacity-0 transform translate-y-4 transition-all-custom max-w-4xl mx-auto bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-taupe/30 relative">
+                <button onclick="closeDetail()" class="absolute top-4 right-6 text-xs font-medium text-sage-dark hover:text-slate-800 flex items-center gap-1 bg-card-bg px-3 py-1.5 rounded-full shadow-sm transition">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                    <span data-i18n="backToChoice">Kembali ke Pilihan</span>
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-2">
+                    <div class="md:col-span-5 h-64 md:h-72 rounded-2xl overflow-hidden shadow-md bg-card-bg">
+                        <img id="active-img" src="" alt="Detail Foto" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:col-span-7 space-y-3">
+                        <span id="active-badge" class="text-xs font-semibold text-sage-dark tracking-widest uppercase bg-sage/20 px-3 py-1 rounded-full"></span>
+                        <h3 id="active-title" class="font-elegant text-2xl md:text-3xl text-slate-800 pt-1"></h3>
+                        <p id="active-subtitle" class="text-xs font-medium text-sage-dark uppercase tracking-wider"></p>
+                        <p id="active-desc" class="text-sm text-soft-text font-light leading-relaxed text-justify-clean"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Script Interaktif Toggle Berdampingan, Best Projects Split, & Kilas Balik Card -->
+    <script>
+        // --- KAMUS BAHASA (ID & EN) ---
+        const translations = {
+            id: {
+                navAbout: "Tentang",
+                navWorks: "Karya",
+                navExp: "Pengalaman",
+                navComp: "Kompetisi",
+                navChat: "Mari Berbincang",
+                heroGreeting: "Selamat Datang,",
+                heroTagline: 'Menyatukan <span class="text-sage-dark font-medium italic">Data</span>, <span class="text-sage-dark font-medium italic">Manajemen TI</span>, & <span class="text-sage-dark font-medium italic">Desain</span>.',
+                heroDesc: "Mahasiswa Sistem Informasi ITK yang merangkai solusi melalui pengembangan web interaktif, tata kelola TI strategis, dan analisis data yang teliti.",
+                btnExplore: "Mulai Jelajahi",
+                btnCv: "Unduh CV",
+                introBadge: "Kenalan Yuk!",
+                introTitle: "Haloo semuaa!!!! 👋",
+                introP1: "Senang sekali bisa menyambut kamu di ruang digital kecilku ini! Kalau kamu lagi penasaran gimana caraku menggabungkan dunia data, teknologi, dan sentuhan kreatif, kamu ada di tempat yang pas banget.",
+                introP2: "Biasanya aku sibuk ngulik kode, merancang tata kelola sistem, atau mikirin strategi seru buat proyek-proyek inovatif. Yuk, gulir terus atau jelajahi menu di atas buat kenalan lebih dekat sama karya dan perjalananku!",
+                introLink: "Lihat Koleksi Karya & Proyek Lainnya",
+                skillsBadge: "Keahlian & Perangkat",
+                skillsTitle: "Tools & Bahasa yang Dikuasai",
+                skillsSub: "Perangkat dan teknologi pilihan yang menunjang eksplorasi data, pengembangan sistem, serta kreativitas",
+                catData: "Data & Analisis",
+                catDev: "Pengembangan & Manajemen Proyek",
+                catGov: "Tata Kelola & Framework TI",
+                catDesign: "Desain, Presentasi, & Produktivitas",
+                bestProjBadge: "Unggulan Data",
+                bestProjTitle: "Best Data Projects",
+                bestProjSub: "Klik kartu proyek di bawah untuk menyelami detail cerita perjalanannya",
+                proj1Cat: "Data Science & Skripsi",
+                proj1Title: "Analisis Sentimen Opini Publik DPR RI",
+                proj1DescShort: "Proyek monumental skripsi yang mempertemukan aku dengan hal-hal baru yang menantang, mulai dari Selenium untuk web scraping hingga VADER dan LDA.",
+                clickToRead: "Baca Kisah Proyek",
+                backToChoiceBest: "Kembali ke Pilihan Proyek",
+                flashbackBadge: "Kilas Balik",
+                flashbackTitle: "Hal yang Paling Kubanggakan",
+                flashbackSub: "Klik foto kartu di bawah untuk membaca kisah lengkapnya",
+                card1Header: "Menahkodai Himpunan",
+                card2Header: "Juara 2 CITECH",
+                card2Sub: "Masa Sidang & Wisuda",
+                card3Header: "Pemateri Open Talk SI",
+                card3Sub: "Mentor Sebaya",
+                backToChoice: "Kembali ke Pilihan"
+            },
+            en: {
+                navAbout: "About",
+                navWorks: "Works",
+                navExp: "Experience",
+                navComp: "Competitions",
+                navChat: "Let's Talk",
+                heroGreeting: "Welcome,",
+                heroTagline: 'Uniting <span class="text-sage-dark font-medium italic">Data</span>, <span class="text-sage-dark font-medium italic">IT Management</span>, & <span class="text-sage-dark font-medium italic">Design</span>.',
+                heroDesc: "Information Systems student at ITK weaving solutions through interactive web development, strategic IT governance, and meticulous data analysis.",
+                btnExplore: "Start Exploring",
+                btnCv: "Download CV",
+                introBadge: "Hello!",
+                introTitle: "Hello everyone!!!! 👋",
+                introP1: "So glad to welcome you to my little digital space! If you are curious about how I blend the worlds of data, technology, and creative touch, you are in the exact right place.",
+                introP2: "Usually, I am busy writing code, designing system governance, or brainstorming strategies for innovative projects. Feel free to scroll or explore the menu above to get closer to my work and journey!",
+                introLink: "View More Works & Projects Collection",
+                skillsBadge: "Skills & Tools",
+                skillsTitle: "Tools & Languages Mastered",
+                skillsSub: "Selected tools and technologies supporting data exploration, system development, and creativity",
+                catData: "Data & Analysis",
+                catDev: "Development & Project Management",
+                catGov: "IT Governance & Frameworks",
+                catDesign: "Design, Presentation & Productivity",
+                bestProjBadge: "Data Highlights",
+                bestProjTitle: "Best Data Projects",
+                bestProjSub: "Click any project card below to dive into its narrative journey",
+                proj1Cat: "Data Science & Thesis",
+                proj1Title: "DPR RI Public Opinion Sentiment Analysis",
+                proj1DescShort: "A monumental thesis project introducing challenging new frontiers, from Selenium web scraping to VADER and LDA topic modeling.",
+                clickToRead: "Read Project Story",
+                backToChoiceBest: "Back to Project Choices",
+                flashbackBadge: "Flashback",
+                flashbackTitle: "Moments I'm Most Proud Of",
+                flashbackSub: "Click any card photo below to read the full story",
+                card1Header: "Leading the Association",
+                card2Header: "2nd Place CITECH",
+                card2Sub: "Thesis Defense & Graduation",
+                card3Header: "Open Talk SI Speaker",
+                card3Sub: "Peer Mentor",
+                backToChoice: "Back to Choices"
+            }
+        };
+
+        // --- MANAJEMEN TEMA & BAHASA BERDAMPINGAN (LOCALSTORAGE) ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            const savedLang = localStorage.getItem('lang') || 'id';
+            setLanguage(savedLang);
+        });
+
+        function setTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem('theme', theme);
+
+            const btnLight = document.getElementById('theme-light');
+            const btnDark = document.getElementById('theme-dark');
+
+            if(theme === 'light') {
+                btnLight.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnDark.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnDark.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnLight.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+        }
+
+        let currentLang = localStorage.getItem('lang') || 'id';
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            const btnId = document.getElementById('lang-id');
+            const btnEn = document.getElementById('lang-en');
+            if(lang === 'id') {
+                btnId.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnEn.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnEn.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnId.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // --- DATA DETAIL BEST PROJECTS (UHAMKA di Kiri / ID 2, Sentimen di Kanan / ID 1) ---
+        const bestDetails = {
+            2: {
+                img: "galeri/ak.png",
+                badge: currentLang === 'en' ? "Machine Learning & Quantitative Analysis" : "Machine Learning & Analisis Kuantitatif",
+                title: currentLang === 'en' ? "UHAMKA Student Academic Performance" : "Performa Akademis Mahasiswa UHAMKA",
+                desc: currentLang === 'en' ? "A meaningful milestone as my maiden voyage into complex data processing using the Decision Tree method. It uncovers graduation patterns of Muhammadiyah University Prof. Dr. Hamka (UHAMKA) students and builds robust predictive rules to help prevent academic hurdles proactively." : "Sebuah batu loncatan yang sangat berarti, karena proyek ini menjadi pengalaman perdana aku terjun langsung mengolah data kompleks menggunakan metode Decision Tree. Mengupas pola kelulusan mahasiswa Universitas Muhammadiyah Prof. Dr. Hamka (UHAMKA) dan menyusun aturan prediktif yang berbobot untuk membantu pemetaan kendala studi secara preventif."
+            },
+            1: {
+                img: "galeri/analisis-sentimen.png",
+                badge: currentLang === 'en' ? "Data Science & Thesis" : "Data Science & Skripsi",
+                title: currentLang === 'en' ? "DPR RI Public Opinion Sentiment Analysis" : "Analisis Sentimen Opini Publik DPR RI",
+                desc: currentLang === 'en' ? "A monumental thesis project that introduced me to challenging new frontiers. Here, I first learned to use Selenium for independent Twitter web scraping, implemented the VADER algorithm, and applied LDA topic modeling, yielding deep, objective insights into public perceptions." : "Proyek monumental skripsi yang mempertemukan aku dengan hal-hal baru yang menantang. Di sini, aku pertama kalinya belajar menggunakan Selenium untuk melakukan web scraping data Twitter secara mandiri, mengimplementasikan algoritma VADER, hingga pemodelan topik LDA, menghasilkan wawasan mendalam mengenai pandangan publik secara objektif."
+            }
+        };
+
+        function openBestDetail(id) {
+            const item = bestDetails[id];
+            document.getElementById('best-active-img').src = item.img;
+            document.getElementById('best-active-badge').innerText = item.badge;
+            document.getElementById('best-active-title').innerText = item.title;
+            document.getElementById('best-active-desc').innerText = item.desc;
+
+            const stacked = document.getElementById('best-stacked-view');
+            const split = document.getElementById('best-split-view');
+
+            stacked.style.opacity = '0';
+            stacked.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                stacked.classList.add('hidden');
+                split.classList.remove('hidden');
+                setTimeout(() => {
+                    split.style.opacity = '1';
+                    split.style.transform = 'translateY(0)';
+                }, 50);
+            }, 300);
+        }
+
+        function closeBestDetail() {
+            const stacked = document.getElementById('best-stacked-view');
+            const split = document.getElementById('best-split-view');
+
+            split.style.opacity = '0';
+            split.style.transform = 'translateY(4px)';
+            setTimeout(() => {
+                split.classList.add('hidden');
+                stacked.classList.remove('hidden');
+                setTimeout(() => {
+                    stacked.style.opacity = '1';
+                    stacked.style.transform = 'scale(1)';
+                }, 50);
+            }, 300);
+        }
+
+        // --- DATA DETAIL KILAS BALIK & SKRIP JS CARD ---
+        const dataDetails = {
+            1: {
+                img: "galeri/ketua.jpeg",
+                badge: "Leadership",
+                title: currentLang === 'en' ? "Leading the Information Systems Student Association" : "Menahkodai Himpunan Mahasiswa SI",
+                subtitle: "Kabinet Istanava (Periode 2024-2025)",
+                desc: currentLang === 'en' ? "The most transformative experience when trusted to lead the Information Systems student family. Steering this organization directly taught me how to manage diverse perspectives, design impactful work programs, and handle real leadership responsibilities on campus." : "Pengalaman paling transformatif saat dipercaya memimpin keluarga mahasiswa Sistem Informasi. Menahkodai organisasi ini mengajarkan aku langsung cara merangkul banyak kepala, merancang program kerja berdampak luas, serta mengelola dinamika dan tanggung jawab kepemimpinan yang nyata di lingkungan kampus."
+            },
+            2: {
+                img: "galeri/juara2.jpeg",
+                badge: "Achievement",
+                title: currentLang === 'en' ? "2nd Place CITECH Near Graduation" : "Juara 2 CITECH di Ujung Kelulusan",
+                subtitle: currentLang === 'en' ? "Thesis Defense & Graduation Preparation" : "Masa Sidang Skripsi & Persiapan Wisuda",
+                desc: currentLang === 'en' ? "Achieving 2nd place in CITECH right amidst the bustling thesis defense and graduation preparation was both thrilling and proud. It stands as a sweet testament that the passion to create and uphold campus prestige never fades until the final stretch." : "Meraih penghargaan Juara 2 di ajang CITECH tepat di tengah sibuknya masa sidang skripsi dan persiapan wisuda adalah momen paling mendebarkan sekaligus membanggakan. Hal ini menjadi bukti manis bahwa semangat berkarya dan membawa nama baik kampus tidak pernah surut hingga garis akhir perjuangan kuliah."
+            },
+            3: {
+                img: "galeri/pemateri-4.jpeg",
+                badge: "Public Speaking",
+                title: currentLang === 'en' ? "Sharing Inspiration at Open Talk SI" : "Berbagi Inspirasi di Open Talk SI",
+                subtitle: currentLang === 'en' ? "Speaker & Peer Mentor" : "Pemateri & Mentor Sebaya",
+                desc: currentLang === 'en' ? "Standing before junior students to share stories, experiences, and tips on balancing academics, competitions, and organizations was immensely valuable. Inspiring and motivating them is a deeply fulfilling form of contribution." : "Berdiri di depan adik-adik tingkat untuk berbagi cerita, pengalaman, dan kiat-kiat sukses menyeimbangkan antara akademik, kompetisi, dan organisasi merupakan pengalaman yang sangat berharga. Bisa menularkan energi positif dan memotivasi mereka adalah bentuk kontribusi yang amat membahagiakan."
+            }
+        };
+
+        function openDetail(id) {
+            const item = dataDetails[id];
+            document.getElementById('active-img').src = item.img;
+            document.getElementById('active-badge').innerText = item.badge;
+            document.getElementById('active-title').innerText = item.title;
+            document.getElementById('active-subtitle').innerText = item.subtitle;
+            document.getElementById('active-desc').innerText = item.desc;
+
+            const stacked = document.getElementById('stacked-view');
+            const split = document.getElementById('split-view');
+
+            stacked.style.opacity = '0';
+            stacked.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                stacked.classList.add('hidden');
+                split.classList.remove('hidden');
+                setTimeout(() => {
+                    split.style.opacity = '1';
+                    split.style.transform = 'translateY(0)';
+                }, 50);
+            }, 300);
+        }
+
+        function closeDetail() {
+            const stacked = document.getElementById('stacked-view');
+            const split = document.getElementById('split-view');
+
+            split.style.opacity = '0';
+            split.style.transform = 'translateY(4px)';
+            setTimeout(() => {
+                split.classList.add('hidden');
+                stacked.classList.remove('hidden');
+                setTimeout(() => {
+                    stacked.style.opacity = '1';
+                    stacked.style.transform = 'scale(1)';
+                }, 50);
+            }, 300);
+        }
+    </script>
+</body>
+</html>

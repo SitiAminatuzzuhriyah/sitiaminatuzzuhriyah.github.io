@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Aminatuzzuhriyah - Karya & Proyek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-bg': '#FDFBF7',
+                        'soft-text': '#4A4C49',
+                        'sage': '#9EAB8A',
+                        'sage-dark': '#7A8768',
+                        'taupe': '#D3CDC1',
+                        'card-bg': '#F5F3EC',
+                        'dark-bg': '#121212',
+                        'dark-card': '#1E1E1E',
+                        'dark-text': '#E0E0E0',
+                    },
+                    fontFamily: {
+                        'elegant': ['Lora', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-transition {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .transition-all-custom {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .text-justify-clean {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* Dark Mode Manual Overrides */
+        .dark body { background-color: #121212; color: #E0E0E0; }
+        .dark nav { background-color: rgba(18, 18, 18, 0.85) !important; border-color: rgba(255, 255, 255, 0.1); }
+        .dark .bg-card-bg { background-color: #1E1E1E !important; }
+        .dark .bg-soft-bg { background-color: #121212 !important; }
+        .dark .bg-white { background-color: #1E1E1E !important; color: #E0E0E0 !important; border-color: rgba(255,255,255,0.1) !important; }
+        .dark .text-slate-800 { color: #F3F4F6 !important; }
+        .dark .text-slate-500, .dark .text-soft-text { color: #A0A0A0 !important; }
+        .dark .border-taupe\/30, .dark .border-taupe\/20 { border-color: rgba(255,255,255,0.15) !important; }
+    </style>
+</head>
+<body class="bg-soft-bg text-soft-text font-sans antialiased overflow-x-hidden selection:bg-sage/30 page-transition">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-soft-bg/80 backdrop-blur-md border-b border-taupe/30 transition-all duration-300">
+        <div class="flex justify-between items-center py-5 px-10 max-w-6xl mx-auto">
+            <a href="../" class="font-elegant italic font-semibold text-2xl text-sage-dark tracking-wide">zuhriyah.</a>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <div class="space-x-8 hidden md:block">
+                    <a href="../" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navAbout">Tentang</a>
+                    <a href="../karya/" class="text-sage-dark font-semibold" data-i18n="navWorks">Karya</a>
+                    <a href="../experience/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navExp">Pengalaman</a>
+                    <a href="../kompetisi/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navComp">Kompetisi</a>
+                </div>
+                
+                <!-- Toggle Bahasa & Tema Berdampingan -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setLanguage('id')" id="lang-id" class="px-2.5 py-1 rounded-full transition-all text-sage-dark">ID</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition-all text-sage-dark/60">EN</button>
+                    </div>
+
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setTheme('light')" id="theme-light" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark" title="Light Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path>
+                            </svg>
+                        </button>
+                        <button onclick="setTheme('dark')" id="theme-dark" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60" title="Dark Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="../kontak/" class="hidden md:inline-block px-5 py-2.5 border border-sage text-sage-dark rounded-full hover:bg-sage hover:text-white transition-all duration-300" data-i18n="navChat">Mari Berbincang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIEW 1: GRID UTAMA DAFTAR KARYA -->
+    <section id="portfolio-grid-view" class="py-32 bg-card-bg min-h-screen transition-opacity duration-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16">
+                <span class="text-xs font-medium text-sage-dark tracking-widest uppercase" data-i18n="worksBadge">Eksplorasi & Perjalanan</span>
+                <h2 class="font-elegant text-4xl text-slate-800 mt-2 mb-4" data-i18n="worksTitle">Ruang Cerita Karya & Proyek</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto"></div>
+                <p class="text-sm text-soft-text mt-4 font-light max-w-xl mx-auto" data-i18n="worksSub">Setiap baris kode, analisis data, dan perancangan sistem punya cerita di baliknya. Klik pada salah satu kartu untuk menyelami kisah perjalanannya.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. Business Intelligence - Analisis Pengangguran Jatim -->
+                <div onclick="openStory('story-bi')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/BI.png" alt="Business Intelligence Pengangguran Jatim" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Business Intelligence</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p1Title">Analisis Faktor Pengangguran Jatim</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p1Desc">Pembersihan data mendalam dan visualisasi interaktif menggunakan Power BI untuk memetakan faktor penyebab pengangguran di Jawa Timur.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Perencanaan Arsitektur TI / IT Blueprint -->
+                <div onclick="openStory('story-pati')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/pati.png" alt="Perencanaan Arsitektur TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Architecture</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p2Title">Perencanaan Arsitektur TI (IT Blueprint)</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p2Desc">Perancangan cetak biru teknologi informasi menggunakan pemodelan berlapis mulai dari motivation layer, bisnis, hingga aspek pendukung lainnya.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Neuro Motion -->
+                <div onclick="openStory('story-neuromotion')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/neuro-motion.png" alt="Neuro Motion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">UI/UX & Web Dev</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p3Title">Neuro Motion</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p3Desc">Website inovatif yang memanfaatkan AI untuk mendukung skrining dan deteksi dini gangguan neurologis Parkinson melalui analisis gerakan.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Analisis Sentimen -->
+                <div onclick="openStory('story-sentimen')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/analisis-sentimen.png" alt="Analisis Sentimen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Science</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p4Title">Analisis Sentimen Opini Publik DPR RI</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p4Desc">Pemodelan topik LDA dan klasifikasi sentimen Twitter menggunakan metodologi InSet Vader with Runtime Score Normalization.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Manajemen Risiko TI -->
+                <div onclick="openStory('story-mrti')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/mrti.png" alt="Manajemen Risiko TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Governance</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p5Title">Manajemen Risiko TI PN Balikpapan</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p5Desc">Analisis mendalam dan penyusunan rekomendasi perbaikan untuk mitigasi risiko infrastruktur teknologi informasi pengadilan.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. SPK Beasiswa BI -->
+                <div onclick="openStory('story-spk')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/scpk.png" alt="Sistem Pendukung Keputusan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Software Engineering</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p6Title">SPK Penerima Beasiswa BI</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p6Desc">Pengembangan sistem cerdas berbasis kalkulasi multi-variabel untuk menentukan kelayakan mahasiswa penerima beasiswa Bank Indonesia.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Perencanaan Manajemen Kelurahan -->
+                <div onclick="openStory('story-pmpti')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/pmpti.png" alt="Manajemen Proyek TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Project Management</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p7Title">SIM Kelurahan Sepinggan Baru</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p7Desc">Memimpin tim sebagai Project Manager & Scrum Master dalam menyusun backlog, sprint, dan perencanaan sistem informasi warga.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Harga Kendaraan Bekas -->
+                <div onclick="openStory('story-sains')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/sains-data.png" alt="Analisis Harga Kendaraan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Analytics</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p8Title">Analisis Harga Kendaraan Bekas</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p8Desc">Pengolahan dataset kompleks dan pembuatan visualisasi interaktif menggunakan Python untuk menemukan faktor penentu harga pasar.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Tata Kelola TI -->
+                <div onclick="openStory('story-tkmti')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/tkmti.png" alt="Tata Kelola TI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Governance</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p9Title">Tata Kelola TI PN Balikpapan</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p9Desc">Perancangan evaluasi komprehensif dan manajemen layanan TI untuk meningkatkan efisiensi operasional pengadilan negeri.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Portofolio Fotografi -->
+                <div onclick="openStory('story-cloud')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/cloud-domputing.png" alt="Web Fotografi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Web Development</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p10Title">Website Portofolio Fotografi</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p10Desc">Pembangunan antarmuka responsif dan penetapan fitur utama perangkat lunak untuk wadah pameran karya visual.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Analisis Kuantitatif - Performa Akademis UHAMKA -->
+                <div onclick="openStory('story-ak')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/ak.png" alt="Analisis Performa Akademis UHAMKA" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Analisis Kuantitatif</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p11Title">Performa Akademis Mahasiswa UHAMKA</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p11Desc">Penerapan metode Decision Tree untuk menganalisis pola kelulusan dan performa akademis mahasiswa.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Data Storytelling - Analisis Pengeluaran Semester -->
+                <div onclick="openStory('story-worker')" class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group border border-taupe/20 cursor-pointer flex flex-col justify-between">
+                    <div class="h-48 bg-taupe/20 overflow-hidden relative">
+                        <img src="../galeri/worker.jpeg" alt="Data Storytelling Pengeluaran" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Storytelling</span>
+                            <h3 class="font-elegant text-xl mt-2 mb-2 text-slate-800" data-i18n="p12Title">Analisis & Narasi Pengeluaran Semester</h3>
+                            <p class="text-sm text-soft-text mb-6 font-light leading-relaxed text-justify-clean" data-i18n="p12Desc">Visualisasi data riil pengeluaran di setiap semester, mengungkap puncak pengeluaran tertinggi pada semester 3.</p>
+                        </div>
+                        <div class="pt-4 border-t border-taupe/20 flex justify-end">
+                            <span class="px-5 py-2.5 bg-sage text-white text-xs font-medium rounded-full shadow-sm group-hover:bg-sage-dark transition-all duration-300" data-i18n="btnRead">Baca Kisah Proyek</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VIEW 2: HALAMAN HALAMAN FULL STORY (IMMERSIVE ARTICLE VIEW) -->
+    <section id="portfolio-story-view" class="fixed inset-0 z-50 bg-soft-bg overflow-y-auto hidden opacity-0 transition-opacity duration-500">
+        <div class="max-w-4xl mx-auto px-6 py-20 min-h-screen flex flex-col justify-between">
+            
+            <!-- Tombol Kembali -->
+            <div>
+                <button onclick="closeStory()" class="inline-flex items-center text-sm font-medium text-sage-dark hover:text-slate-800 mb-10 transition group">
+                    <span class="mr-2 transform group-hover:-translate-x-1 transition-transform">&lt;</span> <span data-i18n="backToList">Kembali ke Daftar Karya</span>
+                </button>
+
+                <!-- Tempat Konten Cerita Dimuat Secara Dinamis -->
+                <div id="story-body-content" class="space-y-8 pb-20">
+                    <!-- Konten artikel mendalam dimuat di sini -->
+                </div>
+            </div>
+
+            <!-- Footer kecil di dalam story -->
+            <div class="border-t border-taupe/30 py-8 text-center text-xs text-soft-text font-light">
+                <p><span data-i18n="storyFooter">Tertarik mendiskusikan proyek ini lebih lanjut?</span> <a href="../kontak/" class="text-sage-dark underline font-medium" data-i18n="storyFooterLink">Mari berbincang dengan Siti Aminatuzzuhriyah</a>.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DATA TEMPLATE ARTIKEL BERKISAH (STORYTELLING STYLE MENGGUNAKAN KATA "AKU") -->
+    <div class="hidden">
+        
+        <!-- 1. BI -->
+        <div id="story-bi">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Business Intelligence</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="biH1">Memetakan Tantangan Tenaga Kerja: Di Balik Dasbor Analisis Pengangguran Jatim</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="biSub">Oleh Siti Aminatuzzuhriyah • Proyek Analisis Data & Visualisasi</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/BI.png" alt="Business Intelligence Pengangguran Jatim" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="biCaption">Tampilan visualisasi dasbor interaktif Power BI.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="biQ1">Kenapa Proyek Ini Aku Mulai?</h3>
+                <p data-i18n="biA1">Isu pengangguran terbuka seringkali dibahas dalam angka yang kaku tanpa memberikan gambaran mendalam mengenai faktor wilayah atau kelompok demografi yang paling terdampak. Melalui proyek ini, aku ingin menyelami dataset sosio-demografis Jawa Timur agar bisa menyajikan informasi yang tidak cuma informatif, tapi juga mudah dibaca oleh para pengambil kebijakan.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="biQ2">Bagaimana Aku Menyelesaikan Tantangannya?</h3>
+                <p data-i18n="biA2">Aku memulai prosesnya dari tahap pembersihan data yang cukup ketat untuk memastikan tidak ada anomali variabel. Setelah struktur datanya rapi, aku merancang dasbor analitik interaktif menggunakan Power BI. Tantangannya adalah bagaimana merangkai metrik yang rumit menjadi visualisasi yang bersih dan langsung menyoroti tren utama di berbagai daerah.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="biQuote">"Visualisasi data yang baik bukan soal seberapa banyak warna yang dipakai, tapi seberapa cepat audiens bisa menangkap inti permasalahan dari grafik tersebut."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="biQ3">Hasil & Dampak</h3>
+                <p data-i18n="biA3">Dasbor ini berhasil merangkum tren pengangguran lintas wilayah secara transparan. Kehadirannya mempermudah proses pembacaan data sosio-demografi secara cepat dan akurat, sehingga para perencana kebijakan dapat menyusun strategi penanggulangan yang jauh lebih tepat sasaran bagi masyarakat.</p>
+            </div>
+        </div>
+
+        <!-- 2. PATI -->
+        <div id="story-pati">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Architecture</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="patiH1">Menyelaraskan Bisnis dan Teknologi: Perancangan Cetak Biru IT Blueprint</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="patiSub">Oleh Siti Aminatuzzuhriyah • Proyek IT Enterprise Architecture</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/pati.png" alt="Perencanaan Arsitektur TI" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="patiCaption">Model perancangan arsitektur enterprise dan relasi sistem.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="patiQ1">Awal Mula Keresahan</h3>
+                <p data-i18n="patiA1">Banyak organisasi terjebak dalam investasi perangkat lunak atau infrastruktur teknologi yang berjalan sendiri-sendiri tanpa sinkronisasi dengan tujuan bisnis jangka panjang. Dari sinilah aku tertantang untuk merancang sebuah cetak biru teknologi informasi yang komprehensif agar arah digitalisasi organisasi menjadi jauh lebih terarah dan efisien.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="patiQ2">Langkah Perancangan yang Aku Lakukan</h3>
+                <p data-i18n="patiA2">Aku menerapkan pemodelan enterprise berlapis, mulai dari motivation layer, proses bisnis inti, hingga infrastruktur teknologi pendukung, untuk memastikan keselarasan operasional jangka panjang.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="patiQuote">"Teknologi yang hebat tidak akan memberikan nilai maksimal jika tidak berdiri di atas fondasi arsitektur bisnis dan motivasi organisasi yang selaras."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="patiQ3">Dampak Nyata</h3>
+                <p data-i18n="patiA3">Dokumen cetak biru ini berhasil menjadi panduan strategis yang menyelamatkan organisasi dari pemborosan anggaran teknologi, sekaligus menghadirkan peta jalan digital yang jelas untuk mendongkrak produktivitas.</p>
+            </div>
+        </div>
+
+        <!-- 3. NEURO MOTION -->
+        <div id="story-neuromotion">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">UI/UX & Web Development</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="neuroH1">Neuro Motion: Solusi Web Skrining Dini Parkinson (Juara 2 CITECH)</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="neuroSub">Oleh Siti Aminatuzzuhriyah • Proyek Kompetisi Nasional</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/neuro-motion.png" alt="Neuro Motion" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="neuroCaption">Antarmuka platform web skrining kesehatan saraf.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="neuroQ1">Kenapa Kami Membangun Neuro Motion?</h3>
+                <p data-i18n="neuroA1">Penyakit neurodegeneratif seperti Parkinson seringkali terlambat disadari karena gejalanya kerap disamakan dengan kelelahan biasa. Bersama tim, aku ingin menghadirkan akses skrining awal yang mudah dijangkau melalui platform web yang interaktif.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="neuroQ2">Perjalanan Merancang Solusi</h3>
+                <p data-i18n="neuroA2">Aku bertanggung jawab merancang antarmuka pengguna yang ramah pasien, menyusun alur tes mandiri, serta membangun kode web yang responsif agar pengguna merasa nyaman tanpa diintimidasi istilah medis.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="neuroQuote">"Desain antarmuka di bidang kesehatan harus mampu meredakan kecemasan pengguna lewat navigasi yang penuh empati dan kejelasan informasi."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="neuroQ3">Prestasi & Dampak Sosial</h3>
+                <p data-i18n="neuroA3">Platform ini berhasil mengantarkan tim kami meraih Juara 2 dalam ajang kompetisi desain web nasional CITECH, serta menjadi sarana edukasi awal yang bermanfaat bagi masyarakat.</p>
+            </div>
+        </div>
+
+        <!-- 4. SENTIMEN -->
+        <div id="story-sentimen">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Science & Skripsi</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="sentimenH1">Membaca Suara Publik: Di Balik Riset Sentimen Opini DPR RI</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="sentimenSub">Oleh Siti Aminatuzzuhriyah • Riset Tugas Akhir / Skripsi</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/analisis-sentimen.png" alt="Analisis Sentimen" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="sentimenCaption">Skema pemrosesan teks dan pemodelan topik.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="sentimenQ1">Awal Mula Keresahan Riset</h3>
+                <p data-i18n="sentimenA1">Riuhnya percakapan di platform X terkait kinerja DPR RI memuat berbagai emosi publik yang beragam. Aku tertantang untuk mengubah tumpukan teks opini mentah tersebut menjadi wawasan terstruktur menggunakan InSet Vader with Runtime Score Normalization dan LDA.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="sentimenQ2">Proses Pengerjaan</h3>
+                <p data-i18n="sentimenA2">Mulai dari pengumpulan data, pembersihan teks, penerapan rumus normalisasi skor untuk menangani bahasa gaul media sosial, hingga pemodelan topik agar klaster isu utama terbaca secara presisi.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="sentimenQuote">"Mengolah data media sosial menuntut ketelitian ekstra karena bahasa manusia di dunia digital sangat dinamis dan penuh nuansa emosional."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="sentimenQ3">Hasil Akhir</h3>
+                <p data-i18n="sentimenA3">Riset ini menghasilkan model analitik dan naskah skripsi utuh yang menyajikan sudut pandang objektif berbasis data kuantitatif mengenai ragam persepsi masyarakat terhadap lembaga legislatif.</p>
+            </div>
+        </div>
+
+        <!-- 5. MRTI -->
+        <div id="story-mrti">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Governance</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="mrtiH1">Mitigasi Keamanan Digital: Manajemen Risiko TI PN Balikpapan</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="mrtiSub">Oleh Siti Aminatuzzuhriyah • Proyek Tata Kelola & Keamanan</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/mrti.png" alt="Manajemen Risiko TI" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="mrtiCaption">Dokumentasi analisis kerentanan dan manajemen risiko.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="mrtiQ1">Latar Belakang Proyek</h3>
+                <p data-i18n="mrtiA1">Infrastruktur teknologi informasi di instansi peradilan menopang operasional yang sangat krusial bagi publik. Proyek ini aku rancang untuk mengidentifikasi celah kerentanan serta merumuskan strategi mitigasi risiko keamanan informasi.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="mrtiQ2">Proses Analisis</h3>
+                <p data-i18n="mrtiA2">Melalui peninjauan alur sistem yang berjalan, penilaian tingkat risiko, dan penyusunan matriks penanganan, aku mengupas berbagai potensi gangguan yang mungkin menghambat layanan peradilan digital.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="mrtiQuote">"Keamanan sistem informasi di lembaga publik bukan sekadar pelindung data, melainkan penjaga kepercayaan masyarakat terhadap keadilan."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="mrtiQ3">Dampak</h3>
+                <p data-i18n="mrtiA3">Hasil akhirnya berupa dokumen mitigasi komprehensif yang membantu instansi menjaga kerahasiaan data serta menjamin kelangsungan operasional sistem peradilan secara berkelanjutan.</p>
+            </div>
+        </div>
+
+        <!-- 6. SPK -->
+        <div id="story-spk">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Software Engineering</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="spkH1">Mewujudkan Seleksi yang Adil: SPK Penerima Beasiswa Bank Indonesia</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="spkSub">Oleh Siti Aminatuzzuhriyah • Proyek Rekayasa Perangkat Lunak</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/scpk.png" alt="Sistem Pendukung Keputusan" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="spkCaption">Antarmuka web sistem pendukung keputusan.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="spkQ1">Keresahan & Kebutuhan Sistem</h3>
+                <p data-i18n="spkA1">Proses seleksi penerima beasiswa seringkali memakan waktu panjang dan rentan subjektivitas apabila dilakukan manual. Aku ingin menghadirkan solusi berupa sistem cerdas berbasis web yang transparan dan akuntabel.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="spkQ2">Solusi yang Aku Kembangkan</h3>
+                <p data-i18n="spkA2">Aku mengimplementasikan algoritma perhitungan multi-kriteria untuk memproses berbagai indikator akademik maupun kondisi ekonomi pelamar secara otomatis dan presisi ke dalam aplikasi web.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="spkQuote">"Sistem pendukung keputusan yang baik harus mampu mengonversi variabel penilaian yang kompleks menjadi hasil akhir yang objektif dan adil."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="spkQ3">Dampak Nyata</h3>
+                <p data-i18n="spkA3">Sistem ini berhasil mempercepat proses seleksi internal secara akuntabel serta meminimalisir potensi kesalahan manusia dalam memberikan penilaian akhir kepada calon penerima beasiswa.</p>
+            </div>
+        </div>
+
+        <!-- 7. PMPTI -->
+        <div id="story-pmpti">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Project Management</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="pmptiH1">Memimpin Tim Sebagai Scrum Master: SIM Kelurahan Sepinggan Baru</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="pmptiSub">Oleh Siti Aminatuzzuhriyah • Proyek Manajemen Sistem Informasi</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/pmpti.png" alt="Manajemen Proyek TI" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="pmptiCaption">Dokumentasi perencanaan sprint dan manajemen proyek.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="pmptiQ1">Tantangan Kepemimpinan Proyek</h3>
+                <p data-i18n="pmptiA1">Pelayanan administrasi warga di tingkat kelurahan membutuhkan sistem informasi terstruktur. Dalam proyek ini, aku mengambil peran langsung sebagai Project Manager dan Scrum Master untuk menakhodai pengembangan aplikasi.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="pmptiQ2">Eksekusi & Metodologi Agile</h3>
+                <p data-i18n="pmptiA2">Aku memimpin penyusunan product backlog, mengelola siklus sprint, dan mengatur pembagian tugas tim secara agile agar setiap modul sistem informasi warga rampung sesuai target waktu.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="pmptiQuote">"Keberhasilan sebuah proyek teknologi sangat bergantung pada komunikasi yang terbuka dan koordinasi tim yang adaptif terhadap perubahan."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="pmptiQ3">Hasil & Pembelajaran</h3>
+                <p data-i18n="pmptiA3">Proyek ini sukses menghasilkan dokumen manajemen rapi beserta purwarupa sistem informasi warga, sekaligus mengasah kemampuan kepemimpinanku dalam mengelola kolaborasi tim.</p>
+            </div>
+        </div>
+
+        <!-- 8. SAINS DATA -->
+        <div id="story-sains">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Analytics</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="sainsH1">Mengupas Pola Pasar: Analisis Prediktif Harga Kendaraan Bekas</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="sainsSub">Oleh Siti Aminatuzzuhriyah • Eksplorasi Data Sains</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/sains-data.png" alt="Analisis Harga Kendaraan" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="sainsCaption">Visualisasi korelasi variabel harga kendaraan.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="sainsQ1">Latar Belakang Analisis</h3>
+                <p data-i18n="sainsA1">Fluktuasi harga jual kendaraan bermotor bekas di pasaran dipengaruhi berbagai variabel tersembunyi. Aku menggunakan Python untuk membongkar dataset multivariat dan menemukan faktor penentu utama.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="sainsQ2">Proses Pengerjaan</h3>
+                <p data-i18n="sainsA2">Mulai dari pembersihan dataset besar, analisis statistik deskriptif, hingga pemetaan korelasi antar fitur menggunakan Pandas dan Seaborn agar pola data terbaca jelas.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="sainsQuote">"Analisis data yang mendalam mampu mengubah angka-angka acak di pasaran menjadi wawasan berharga bagi pengambilan keputusan ekonomi."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="sainsQ3">Dampak & Manfaat</h3>
+                <p data-i18n="sainsA3">Proyek ini menghasilkan wawasan prediktif berupa skrip analisis dan visualisasi grafik yang membantu konsumen maupun pelaku industri menetapkan estimasi nilai wajar kendaraan.</p>
+            </div>
+        </div>
+
+        <!-- 9. TKMTI -->
+        <div id="story-tkmti">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">IT Governance</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="tkmtiH1">Evaluasi Kinerja Teknologi: Tata Kelola TI PN Balikpapan</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="tkmtiSub">Oleh Siti Aminatuzzuhriyah • Proyek Evaluasi Layanan IT</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/tkmti.png" alt="Tata Kelola TI" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="tkmtiCaption">Laporan audit kapabilitas dan tata kelola layanan.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="tkmtiQ1">Tujuan Evaluasi</h3>
+                <p data-i18n="tkmtiA1">Proyek evaluasi ini dikerjakan untuk mengukur sejauh mana efektivitas tata kelola dan manajemen layanan TI di instansi peradilan berdasarkan kerangka kerja standar internasional.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="tkmtiQ2">Proses Audit & Analisis Kesenjangan</h3>
+                <p data-i18n="tkmtiA2">Aku melakukan audit kapabilitas terhadap proses layanan yang berjalan, menganalisis kesenjangan performa, serta merumuskan rekomendasi strategis untuk meningkatkan mutu layanan digital.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="tkmtiQuote">"Tata kelola TI yang matang adalah jembatan utama untuk memastikan setiap investasi teknologi benar-benar mendongkrak kualitas pelayanan publik."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="tkmtiQ3">Hasil</h3>
+                <p data-i18n="tkmtiA3">Laporan komprehensif penataan tata kelola TI yang dihasilkan berhasil membantu instansi dalam mengoptimalkan layanan digital secara aman, terukur, dan berstandar institusional.</p>
+            </div>
+        </div>
+
+        <!-- 10. CLOUD / FOTOGRAFI -->
+        <div id="story-cloud">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Web Development</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="cloudH1">Estetika di Ujung Kode: Website Portofolio Fotografi</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="cloudSub">Oleh Siti Aminatuzzuhriyah • Proyek Pengembangan Web Kreatif</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/cloud-domputing.png" alt="Web Fotografi" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="cloudCaption">Tampilan antarmuka galeri web portofolio.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="cloudQ1">Ide Pembuatan Website</h3>
+                <p data-i18n="cloudA1">Karya visual membutuhkan ruang pamer digital yang bersih, minimalis, dan estetis. Proyek ini aku bangun khusus sebagai wadah portofolio fotografi pribadi yang memadukan keindahan visual dengan performa web handal.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="cloudQ2">Fokus Pengembangan</h3>
+                <p data-i18n="cloudA2">Pengembangan berfokus pada perancangan tata letak galeri gambar responsif, optimalisasi aset visual agar waktu muat halaman cepat, serta kenyamanan pengalaman menelusuri karya.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="cloudQuote">"Desain web yang baik bertindak sebagai bingkai tak kasat mata yang memperkuat keindahan karya seni di dalamnya."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="cloudQ3">Hasil</h3>
+                <p data-i18n="cloudA3">Sebuah platform web portofolio fungsional yang elegan, memberikan ruang digital profesional yang berkesan untuk memamerkan berbagai karya visual kepada publik.</p>
+            </div>
+        </div>
+
+        <!-- 11. AK -->
+        <div id="story-ak">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Analisis Kuantitatif</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="akH1">Prediksi & Pola Studi: Performa Akademis Mahasiswa UHAMKA (Decision Tree)</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="akSub">Oleh Siti Aminatuzzuhriyah • Riset Machine Learning</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/ak.png" alt="Analisis Performa Akademis UHAMKA" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="akCaption">Visualisasi model pohon keputusan (Decision Tree).</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="akQ1">Latar Belakang Penelitian</h3>
+                <p data-i18n="akA1">Penelitian kuantitatif ini bertujuan menganalisis pola kelulusan serta memetakan faktor penentu keberhasilan performa akademis mahasiswa UHAMKA melalui pendekatan Machine Learning terstruktur.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="akQ2">Penerapan Algoritma</h3>
+                <p data-i18n="akA2">Aku memproses data historis akademik secara cermat, menyeleksi atribut penting, dan menerapkan algoritma klasifikasi Decision Tree untuk menemukan aturan keputusan pola performa studi.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="akQuote">"Pemanfaatan machine learning di dunia pendidikan membuka peluang besar untuk mendeteksi potensi masalah lebih dini sebelum berdampak pada studi mahasiswa."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="akQ3">Dampak Institusional</h3>
+                <p data-i18n="akA3">Model pohon keputusan yang dihasilkan sukses membantu pihak institusi pendidikan mengenali indikator performa mahasiswa, sehingga langkah bimbingan preventif dapat diambil tepat waktu.</p>
+            </div>
+        </div>
+
+        <!-- 12. WORKER -->
+        <div id="story-worker">
+            <div class="space-y-4">
+                <span class="text-xs font-medium text-sage-dark tracking-wider uppercase">Data Storytelling</span>
+                <h1 class="font-elegant text-3xl md:text-5xl text-slate-800 leading-tight" data-i18n="workerH1">Jejak Finansial Mahasiswa: Analisis & Narasi Pengeluaran Semester</h1>
+                <p class="text-sm text-taupe-dark font-light italic" data-i18n="workerSub">Oleh Siti Aminatuzzuhriyah • Proyek Data Storytelling Personal</p>
+            </div>
+            <div class="my-8 rounded-2xl overflow-hidden shadow-md border border-taupe/20">
+                <img src="../galeri/worker.jpeg" alt="Data Storytelling Pengeluaran" class="w-full h-auto object-cover max-h-[400px]">
+                <p class="text-xs text-center text-soft-text py-2 bg-card-bg" data-i18n="workerCaption">Grafik visualisasi data pengeluaran per semester.</p>
+            </div>
+            <div class="space-y-6 text-base text-soft-text font-light leading-relaxed text-justify-clean">
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="workerQ1">Asal Mula Cerita Data Ini</h3>
+                <p data-i18n="workerA1">Proyek data storytelling ini lahir dari catatan riil pengeluaran personal di setiap semester perkuliahan. Aku ingin merangkai angka-angka finansial harian tersebut menjadi narasi bermakna.</p>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="workerQ2">Temuan Menarik</h3>
+                <p data-i18n="workerA2">Melalui pengelompokan data per semester dan pembuatan grafik visualisasi, terungkap sebuah temuan unik di mana puncak pengeluaran tertinggi terjadi pada semester 3 akibat kebutuhan akademik.</p>
+                <div class="bg-card-bg border-l-4 border-sage p-6 rounded-r-2xl my-6">
+                    <p class="font-elegant italic text-slate-800 text-lg" data-i18n="workerQuote">"Angka pengeluaran jika dicatat dan divisualisasikan dengan baik dapat menceritakan kisah perjalanan kedewasaan finansial seseorang."</p>
+                </div>
+                <h3 class="font-elegant text-2xl text-slate-800 pt-4" data-i18n="workerQ3">Refleksi & Dampak</h3>
+                <p data-i18n="workerA3">Karya ini tidak cuma menyajikan visualisasi data interaktif, tetapi juga memberikan kesadaran finansial mendalam untuk mengevaluasi pos pengeluaran masa lalu dan merencanakan keuangan lebih bijak.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT INTERAKTIF FULL STORY TRANSITION & LOCALSTORAGE THEME/LANG -->
+    <script>
+        // --- KAMUS BAHASA (ID & EN) UNTUK HALAMAN KARYA ---
+        const translations = {
+            id: {
+                navAbout: "Tentang",
+                navWorks: "Karya",
+                navExp: "Pengalaman",
+                navComp: "Kompetisi",
+                navChat: "Mari Berbincang",
+                worksBadge: "Eksplorasi & Perjalanan",
+                worksTitle: "Ruang Cerita Karya & Proyek",
+                worksSub: "Setiap baris kode, analisis data, dan perancangan sistem punya cerita di baliknya. Klik pada salah satu kartu untuk menyelami kisah perjalanannya.",
+                btnRead: "Baca Kisah Proyek",
+                backToList: "Kembali ke Daftar Karya",
+                storyFooter: "Tertarik mendiskusikan proyek ini lebih lanjut?",
+                storyFooterLink: "Mari berbincang dengan Siti Aminatuzzuhriyah",
+                
+                // Card 1
+                p1Title: "Analisis Faktor Pengangguran Jatim",
+                p1Desc: "Pembersihan data mendalam dan visualisasi interaktif menggunakan Power BI untuk memetakan faktor penyebab pengangguran di Jawa Timur.",
+                biH1: "Memetakan Tantangan Tenaga Kerja: Di Balik Dasbor Analisis Pengangguran Jatim",
+                biSub: "Oleh Siti Aminatuzzuhriyah • Proyek Analisis Data & Visualisasi",
+                biCaption: "Tampilan visualisasi dasbor interaktif Power BI.",
+                biQ1: "Kenapa Proyek Ini Aku Mulai?",
+                biA1: "Isu pengangguran terbuka seringkali dibahas dalam angka yang kaku tanpa memberikan gambaran mendalam mengenai faktor wilayah atau kelompok demografi yang paling terdampak. Melalui proyek ini, aku ingin menyelami dataset sosio-demografis Jawa Timur agar bisa menyajikan informasi yang tidak cuma informatif, tapi juga mudah dibaca oleh para pengambil kebijakan.",
+                biQ2: "Bagaimana Aku Menyelesaikan Tantangannya?",
+                biA2: "Aku memulai prosesnya dari tahap pembersihan data yang cukup ketat untuk memastikan tidak ada anomali variabel. Setelah struktur datanya rapi, aku merancang dasbor analitik interaktif menggunakan Power BI. Tantangannya adalah bagaimana merangkai metrik yang rumit menjadi visualisasi yang bersih dan langsung menyoroti tren utama di berbagai daerah.",
+                biQuote: "\"Visualisasi data yang baik bukan soal seberapa banyak warna yang dipakai, tapi seberapa cepat audiens bisa menangkap inti permasalahan dari grafik tersebut.\"",
+                biQ3: "Hasil & Dampak",
+                biA3: "Dasbor ini berhasil merangkum tren pengangguran lintas wilayah secara transparan. Kehadirannya mempermudah proses pembacaan data sosio-demografi secara cepat dan akurat, sehingga para perencana kebijakan dapat menyusun strategi penanggulangan yang jauh lebih tepat sasaran bagi masyarakat.",
+
+                // Card 2
+                p2Title: "Perencanaan Arsitektur TI (IT Blueprint)",
+                p2Desc: "Perancangan cetak biru teknologi informasi menggunakan pemodelan berlapis mulai dari motivation layer, bisnis, hingga aspek pendukung lainnya.",
+                patiH1: "Menyelaraskan Bisnis dan Teknologi: Perancangan Cetak Biru IT Blueprint",
+                patiSub: "Oleh Siti Aminatuzzuhriyah • Proyek IT Enterprise Architecture",
+                patiCaption: "Model perancangan arsitektur enterprise dan relasi sistem.",
+                patiQ1: "Awal Mula Keresahan",
+                patiA1: "Banyak organisasi terjebak dalam investasi perangkat lunak atau infrastruktur teknologi yang berjalan sendiri-sendiri tanpa sinkronisasi dengan tujuan bisnis jangka panjang. Dari sinilah aku tertantang untuk merancang sebuah cetak biru teknologi informasi yang komprehensif agar arah digitalisasi organisasi menjadi jauh lebih terarah dan efisien.",
+                patiQ2: "Langkah Perancangan yang Aku Lakukan",
+                patiA2: "Aku menerapkan pemodelan enterprise berlapis, mulai dari motivation layer, proses bisnis inti, hingga infrastruktur teknologi pendukung, untuk memastikan keselarasan operasional jangka panjang.",
+                patiQuote: "\"Teknologi yang hebat tidak akan memberikan nilai maksimal jika tidak berdiri di atas fondasi arsitektur bisnis dan motivasi organisasi yang selaras.\"",
+                patiQ3: "Dampak Nyata",
+                patiA3: "Dokumen cetak biru ini berhasil menjadi panduan strategis yang menyelamatkan organisasi dari pemborosan anggaran teknologi, sekaligus menghadirkan peta jalan digital yang jelas untuk mendongkrak produktivitas.",
+
+                // Card 3 (Neuro Motion - Updated with AI and movement analysis)
+                p3Title: "Neuro Motion",
+                p3Desc: "Website inovatif yang memanfaatkan AI untuk mendukung skrining dan deteksi dini gangguan neurologis Parkinson melalui analisis gerakan.",
+                neuroH1: "Neuro Motion: Solusi Web Skrining Dini Parkinson (Juara 2 CITECH)",
+                neuroSub: "Oleh Siti Aminatuzzuhriyah • Proyek Kompetisi Nasional",
+                neuroCaption: "Antarmuka platform web skrining kesehatan saraf.",
+                neuroQ1: "Kenapa Kami Membangun Neuro Motion?",
+                neuroA1: "Penyakit neurodegeneratif seperti Parkinson seringkali terlambat disadari karena gejalanya kerap disamakan dengan kelelahan biasa. Bersama tim, aku ingin menghadirkan akses skrining awal yang mudah dijangkau melalui platform web yang interaktif.",
+                neuroQ2: "Perjalanan Merancang Solusi",
+                neuroA2: "Aku bertanggung jawab merancang antarmuka pengguna yang ramah pasien, menyusun alur tes mandiri, serta membangun kode web yang responsif agar pengguna merasa nyaman tanpa diintimidasi istilah medis.",
+                neuroQuote: "\"Desain antarmuka di bidang kesehatan harus mampu meredakan kecemasan pengguna lewat navigasi yang penuh empati dan kejelasan informasi.\"",
+                neuroQ3: "Prestasi & Dampak Sosial",
+                neuroA3: "Platform ini berhasil mengantarkan tim kami meraih Juara 2 dalam ajang kompetisi desain web nasional CITECH, serta menjadi sarana edukasi awal yang bermanfaat bagi masyarakat.",
+
+                // Card 4
+                p4Title: "Analisis Sentimen Opini Publik DPR RI",
+                p4Desc: "Pemodelan topik LDA dan klasifikasi sentimen Twitter menggunakan metodologi InSet Vader with Runtime Score Normalization.",
+                sentimenH1: "Membaca Suara Publik: Di Balik Riset Sentimen Opini DPR RI",
+                sentimenSub: "Oleh Siti Aminatuzzuhriyah • Riset Tugas Akhir / Skripsi",
+                sentimenCaption: "Skema pemrosesan teks dan pemodelan topik.",
+                sentimenQ1: "Awal Mula Keresahan Riset",
+                sentimenA1: "Riuhnya percakapan di platform X terkait kinerja DPR RI memuat berbagai emosi publik yang beragam. Aku tertantang untuk mengubah tumpukan teks opini mentah tersebut menjadi wawasan terstruktur menggunakan InSet Vader with Runtime Score Normalization dan LDA.",
+                sentimenQ2: "Proses Pengerjaan",
+                sentimenA2: "Mulai dari pengumpulan data, pembersihan teks, penerapan rumus normalisasi skor untuk menangani bahasa gaul media sosial, hingga pemodelan topik agar klaster isu utama terbaca secara presisi.",
+                sentimenQuote: "\"Mengolah data media sosial menuntut ketelitian ekstra karena bahasa manusia di dunia digital sangat dinamis dan penuh nuansa emosional.\"",
+                sentimenQ3: "Hasil Akhir",
+                sentimenA3: "Riset ini menghasilkan model analitik dan naskah skripsi utuh yang menyajikan sudut pandang objektif berbasis data kuantitatif mengenai ragam persepsi masyarakat terhadap lembaga legislatif.",
+
+                // Card 5
+                p5Title: "Manajemen Risiko TI PN Balikpapan",
+                p5Desc: "Analisis mendalam dan penyusunan rekomendasi perbaikan untuk mitigasi risiko infrastruktur teknologi informasi pengadilan.",
+                mrtiH1: "Mitigasi Keamanan Digital: Manajemen Risiko TI PN Balikpapan",
+                mrtiSub: "Oleh Siti Aminatuzzuhriyah • Proyek Tata Kelola & Keamanan",
+                mrtiCaption: "Dokumentasi analisis kerentanan dan manajemen risiko.",
+                mrtiQ1: "Latar Belakang Proyek",
+                mrtiA1: "Infrastruktur teknologi informasi di instansi peradilan menopang operasional yang sangat krusial bagi publik. Proyek ini aku rancang untuk mengidentifikasi celah kerentanan serta merumuskan strategi mitigasi risiko keamanan informasi.",
+                mrtiQ2: "Proses Analisis",
+                mrtiA2: "Melalui peninjauan alur sistem yang berjalan, penilaian tingkat risiko, dan penyusunan matriks penanganan, aku mengupas berbagai potensi gangguan yang mungkin menghambat layanan peradilan digital.",
+                mrtiQuote: "\"Keamanan sistem informasi di lembaga publik bukan sekadar pelindung data, melainkan penjaga kepercayaan masyarakat terhadap keadilan.\"",
+                mrtiQ3: "Dampak",
+                mrtiA3: "Hasil akhirnya berupa dokumen mitigasi komprehensif yang membantu instansi menjaga kerahasiaan data serta menjamin kelangsungan operasional sistem peradilan secara berkelanjutan.",
+
+                // Card 6
+                p6Title: "SPK Penerima Beasiswa BI",
+                p6Desc: "Pengembangan sistem cerdas berbasis kalkulasi multi-variabel untuk menentukan kelayakan mahasiswa penerima beasiswa Bank Indonesia.",
+                spkH1: "Mewujudkan Seleksi yang Adil: SPK Penerima Beasiswa Bank Indonesia",
+                spkSub: "Oleh Siti Aminatuzzuhriyah • Proyek Rekayasa Perangkat Lunak",
+                spkCaption: "Antarmuka web sistem pendukung keputusan.",
+                spkQ1: "Keresahan & Kebutuhan Sistem",
+                spkA1: "Proses seleksi penerima beasiswa seringkali memakan waktu panjang dan rentan subjektivitas apabila dilakukan manual. Aku ingin menghadirkan solusi berupa sistem cerdas berbasis web yang transparan dan akuntabel.",
+                spkQ2: "Solusi yang Aku Kembangkan",
+                spkA2: "Aku mengimplementasikan algoritma perhitungan multi-kriteria untuk memproses berbagai indikator akademik maupun kondisi ekonomi pelamar secara otomatis dan presisi ke dalam aplikasi web.",
+                spkQuote: "\"Sistem pendukung keputusan yang baik harus mampu mengonversi variabel penilaian yang kompleks menjadi hasil akhir yang objektif dan adil.\"",
+                spkQ3: "Dampak Nyata",
+                spkA3: "Sistem ini berhasil mempercepat proses seleksi internal secara akuntabel serta meminimalisir potensi kesalahan manusia dalam memberikan penilaian akhir kepada calon penerima beasiswa.",
+
+                // Card 7
+                p7Title: "SIM Kelurahan Sepinggan Baru",
+                p7Desc: "Memimpin tim sebagai Project Manager & Scrum Master dalam menyusun backlog, sprint, dan perencanaan sistem informasi warga.",
+                pmptiH1: "Memimpin Tim Sebagai Scrum Master: SIM Kelurahan Sepinggan Baru",
+                pmptiSub: "Oleh Siti Aminatuzzuhriyah • Proyek Manajemen Sistem Informasi",
+                pmptiCaption: "Dokumentasi perencanaan sprint dan manajemen proyek.",
+                pmptiQ1: "Tantangan Kepemimpinan Proyek",
+                pmptiA1: "Pelayanan administrasi warga di tingkat kelurahan membutuhkan sistem informasi terstruktur. Dalam proyek ini, aku mengambil peran langsung sebagai Project Manager dan Scrum Master untuk menakhodai pengembangan aplikasi.",
+                pmptiQ2: "Eksekusi & Metodologi Agile",
+                pmptiA2: "Aku memimpin penyusunan product backlog, mengelola siklus sprint, dan mengatur pembagian tugas tim secara agile agar setiap modul sistem informasi warga rampung sesuai target waktu.",
+                pmptiQuote: "\"Keberhasilan sebuah proyek teknologi sangat bergantung pada komunikasi yang terbuka dan koordinasi tim yang adaptif terhadap perubahan.\"",
+                pmptiQ3: "Hasil & Pembelajaran",
+                pmptiA3: "Proyek ini sukses menghasilkan dokumen manajemen rapi beserta purwarupa sistem informasi warga, sekaligus mengasah kemampuan kepemimpinanku dalam mengelola kolaborasi tim.",
+
+                // Card 8
+                p8Title: "Analisis Harga Kendaraan Bekas",
+                p8Desc: "Pengolahan dataset kompleks dan pembuatan visualisasi interaktif menggunakan Python untuk menemukan faktor penentu harga pasar.",
+                sainsH1: "Mengupas Pola Pasar: Analisis Prediktif Harga Kendaraan Bekas",
+                sainsSub: "Oleh Siti Aminatuzzuhriyah • Eksplorasi Data Sains",
+                sainsCaption: "Visualisasi korelasi variabel harga kendaraan.",
+                sainsQ1: "Latar Belakang Analisis",
+                sainsA1: "Fluktuasi harga jual kendaraan bermotor bekas di pasaran dipengaruhi berbagai variabel tersembunyi. Aku menggunakan Python untuk membongkar dataset multivariat dan menemukan faktor penentu utama.",
+                sainsQ2: "Proses Pengerjaan",
+                sainsA2: "Mulai dari pembersihan dataset besar, analisis statistik deskriptif, hingga pemetaan korelasi antar fitur menggunakan Pandas dan Seaborn agar pola data terbaca jelas.",
+                sainsQuote: "\"Analisis data yang mendalam mampu mengubah angka-angka acak di pasaran menjadi wawasan berharga bagi pengambilan keputusan ekonomi.\"",
+                sainsQ3: "Dampak & Manfaat",
+                sainsA3: "Proyek ini menghasilkan wawasan prediktif berupa skrip analisis dan visualisasi grafik yang membantu konsumen maupun pelaku industri menetapkan estimasi nilai wajar kendaraan.",
+
+                // Card 9
+                p9Title: "Tata Kelola TI PN Balikpapan",
+                p9Desc: "Perancangan evaluasi komprehensif dan manajemen layanan TI untuk meningkatkan efisiensi operasional pengadilan negeri.",
+                tkmtiH1: "Evaluasi Kinerja Teknologi: Tata Kelola TI PN Balikpapan",
+                tkmtiSub: "Oleh Siti Aminatuzzuhriyah • Proyek Evaluasi Layanan IT",
+                tkmtiCaption: "Laporan audit kapabilitas dan tata kelola layanan.",
+                tkmtiQ1: "Tujuan Evaluasi",
+                tkmtiA1: "Proyek evaluasi ini dikerjakan untuk mengukur sejauh mana efektivitas tata kelola dan manajemen layanan TI di instansi peradilan berdasarkan kerangka kerja standar internasional.",
+                tkmtiQ2: "Proses Audit & Analisis Kesenjangan",
+                tkmtiA2: "Aku melakukan audit kapabilitas terhadap proses layanan yang berjalan, menganalisis kesenjangan performa, serta merumuskan rekomendasi strategis untuk meningkatkan mutu layanan digital.",
+                tkmtiQuote: "\"Tata kelola TI yang matang adalah jembatan utama untuk memastikan setiap investasi teknologi benar-benar mendongkrak kualitas pelayanan publik.\"",
+                tkmtiQ3: "Hasil",
+                tkmtiA3: "Laporan komprehensif penataan tata kelola TI yang dihasilkan berhasil membantu instansi dalam mengoptimalkan layanan digital secara aman, terukur, dan berstandar institusional.",
+
+                // Card 10
+                p10Title: "Website Portofolio Fotografi",
+                p10Desc: "Pembangunan antarmuka responsif dan penetapan fitur utama perangkat lunak untuk wadah pameran karya visual.",
+                cloudH1: "Estetika di Ujung Kode: Website Portofolio Fotografi",
+                cloudSub: "Oleh Siti Aminatuzzuhriyah • Proyek Pengembangan Web Kreatif",
+                cloudCaption: "Tampilan antarmuka galeri web portofolio.",
+                cloudQ1: "Ide Pembuatan Website",
+                cloudA1: "Karya visual membutuhkan ruang pamer digital yang bersih, minimalis, dan estetis. Proyek ini aku bangun khusus sebagai wadah portofolio fotografi pribadi yang memadukan keindahan visual dengan performa web handal.",
+                cloudQ2: "Fokus Pengembangan",
+                cloudA2: "Pengembangan berfokus pada perancangan tata letak galeri gambar responsif, optimalisasi aset visual agar waktu muat halaman cepat, serta kenyamanan pengalaman menelusuri karya.",
+                cloudQuote: "\"Desain web yang baik bertindak sebagai bingkai tak kasat mata yang memperkuat keindahan karya seni di dalamnya.\"",
+                cloudQ3: "Hasil",
+                cloudA3: "Sebuah platform web portofolio fungsional yang elegan, memberikan ruang digital profesional yang berkesan untuk memamerkan berbagai karya visual kepada publik.",
+
+                // Card 11
+                p11Title: "Performa Akademis Mahasiswa UHAMKA",
+                p11Desc: "Penerapan metode Decision Tree untuk menganalisis pola kelulusan dan performa akademis mahasiswa.",
+                akH1: "Prediksi & Pola Studi: Performa Akademis Mahasiswa UHAMKA (Decision Tree)",
+                akSub: "Oleh Siti Aminatuzzuhriyah • Riset Machine Learning",
+                akCaption: "Visualisasi model pohon keputusan (Decision Tree).",
+                akQ1: "Latar Belakang Penelitian",
+                akA1: "Penelitian kuantitatif ini bertujuan menganalisis pola kelulusan serta memetakan faktor penentu keberhasilan performa akademis mahasiswa UHAMKA melalui pendekatan Machine Learning terstruktur.",
+                akQ2: "Penerapan Algoritma",
+                akA2: "Aku memproses data historis akademik secara cermat, menyeleksi atribut penting, dan menerapkan algoritma klasifikasi Decision Tree untuk menemukan aturan keputusan pola performa studi.",
+                akQuote: "\"Pemanfaatan machine learning di dunia pendidikan membuka peluang besar untuk mendeteksi potensi masalah lebih dini sebelum berdampak pada studi mahasiswa.\"",
+                akQ3: "Dampak Institusional",
+                akA3: "Model pohon keputusan yang dihasilkan sukses membantu pihak institusi pendidikan mengenali indikator performa mahasiswa, sehingga langkah bimbingan preventif dapat diambil tepat waktu.",
+
+                // Card 12
+                p12Title: "Analisis & Narasi Pengeluaran Semester",
+                p12Desc: "Visualisasi data riil pengeluaran di setiap semester, mengungkap puncak pengeluaran tertinggi pada semester 3.",
+                workerH1: "Jejak Finansial Mahasiswa: Analisis & Narasi Pengeluaran Semester",
+                workerSub: "Oleh Siti Aminatuzzuhriyah • Proyek Data Storytelling Personal",
+                workerCaption: "Grafik visualisasi data pengeluaran per semester.",
+                workerQ1: "Asal Mula Cerita Data Ini",
+                workerA1: "Proyek data storytelling ini lahir dari catatan riil pengeluaran personal di setiap semester perkuliahan. Aku ingin merangkai angka-angka finansial harian tersebut menjadi narasi bermakna.",
+                workerQ2: "Temuan Menarik",
+                workerA2: "Melalui pengelompokan data per semester dan pembuatan grafik visualisasi, terungkap sebuah temuan unik di mana puncak pengeluaran tertinggi terjadi pada semester 3 akibat kebutuhan akademik.",
+                workerQuote: "\"Angka pengeluaran jika dicatat dan divisualisasikan dengan baik dapat menceritakan kisah perjalanan kedewasaan finansial seseorang.\"",
+                workerQ3: "Refleksi & Dampak",
+                workerA3: "Karya ini tidak cuma menyajikan visualisasi data interaktif, tetapi juga memberikan kesadaran finansial mendalam untuk mengevaluasi pos pengeluaran masa lalu dan merencanakan keuangan lebih bijak."
+            },
+            en: {
+                navAbout: "About",
+                navWorks: "Works",
+                navExp: "Experience",
+                navComp: "Competitions",
+                navChat: "Let's Talk",
+                worksBadge: "Exploration & Journey",
+                worksTitle: "Works & Projects Story Space",
+                worksSub: "Every line of code, data analysis, and system design has a story behind it. Click on any card to dive into its narrative journey.",
+                btnRead: "Read Project Story",
+                backToList: "Back to Works List",
+                storyFooter: "Interested in discussing this project further?",
+                storyFooterLink: "Let's talk with Siti Aminatuzzuhriyah",
+                
+                // Card 1
+                p1Title: "East Java Unemployment Factor Analysis",
+                p1Desc: "In-depth data cleaning and interactive visualization using Power BI to map unemployment factors in East Java.",
+                biH1: "Mapping Workforce Challenges: Behind the East Java Unemployment Analysis Dashboard",
+                biSub: "By Siti Aminatuzzuhriyah • Data Analysis & Visualization Project",
+                biCaption: "Interactive Power BI dashboard visualization view.",
+                biQ1: "Why Did I Start This Project?",
+                biA1: "Open unemployment issues are often discussed in rigid numbers without providing deep insights into regional factors or the most affected demographic groups. Through this project, I wanted to explore East Java's socio-demographic dataset to present information that is not only informative but also easily digestible by policymakers.",
+                biQ2: "How Did I Solve the Challenges?",
+                biA2: "I started the process with a rigorous data cleaning stage to ensure no variable anomalies existed. Once the data structure was neat, I designed an interactive analytical dashboard using Power BI. The challenge was turning complex metrics into clean visualizations that instantly highlight key trends across regions.",
+                biQuote: "\"Good data visualization isn't about how many colors you use, but how quickly the audience can grasp the core issue from the chart.\"",
+                biQ3: "Results & Impact",
+                biA3: "This dashboard successfully summarized cross-regional unemployment trends transparently. Its presence facilitates the rapid and accurate reading of socio-demographic data, enabling policymakers to formulate much more targeted intervention strategies.",
+
+                // Card 2
+                p2Title: "IT Architecture Planning (IT Blueprint)",
+                p2Desc: "Designing an information technology blueprint using multi-layered modeling from motivation and business layers to supporting aspects.",
+                patiH1: "Aligning Business and Technology: Designing the IT Blueprint",
+                patiSub: "By Siti Aminatuzzuhriyah • IT Enterprise Architecture Project",
+                patiCaption: "Enterprise architecture design model and system relationships.",
+                patiQ1: "The Root of Concern",
+                patiA1: "Many organizations get trapped in software or technology infrastructure investments that operate in silos without synchronization with long-term business goals. From here, I was challenged to design a comprehensive information technology blueprint so that the organization's digitalization direction becomes more focused and efficient.",
+                patiQ2: "Design Steps I Took",
+                patiA2: "I applied multi-layered enterprise modeling, starting from the motivation layer and core business processes to supporting technology infrastructure, ensuring long-term operational alignment.",
+                patiQuote: "\"Great technology will not provide maximum value if it does not stand on a foundation of aligned business architecture and organizational motivation.\"",
+                patiQ3: "Real Impact",
+                patiA3: "This blueprint document successfully became a strategic guide that saved the organization from wasted technology budgets while presenting a clear digital roadmap to boost productivity.",
+
+                // Card 3 (Neuro Motion - Updated with AI and movement analysis in EN)
+                p3Title: "Neuro Motion",
+                p3Desc: "An innovative website that leverages AI to support early screening and detection of Parkinson's neurological disorders through movement analysis.",
+                neuroH1: "Neuro Motion: Parkinson's Early Screening Web Solution (2nd Place CITECH)",
+                neuroSub: "By Siti Aminatuzzuhriyah • National Competition Project",
+                neuroCaption: "Neurological health screening web platform interface.",
+                neuroQ1: "Why Did We Build Neuro Motion?",
+                neuroA1: "Neurodegenerative diseases like Parkinson's are often diagnosed late because symptoms are frequently mistaken for ordinary fatigue. Together with the team, I wanted to provide early screening access that is easily accessible through an interactive web platform.",
+                neuroQ2: "The Journey of Designing the Solution",
+                neuroA2: "I was responsible for designing a patient-friendly and intuitive user interface, structuring self-test workflows, and building responsive web code so users feel comfortable without being intimidated by medical jargon.",
+                neuroQuote: "\"User interface design in healthcare must be able to ease user anxiety through empathetic navigation and clear information.\"",
+                neuroQ3: "Achievements & Social Impact",
+                neuroA3: "This platform successfully led our team to win 2nd Place in the CITECH national web design competition, serving as a useful early educational tool for the public.",
+
+                // Card 4
+                p4Title: "DPR RI Public Opinion Sentiment Analysis",
+                p4Desc: "LDA topic modeling and Twitter sentiment classification using InSet Vader with Runtime Score Normalization methodology.",
+                sentimenH1: "Reading Public Voice: Behind the DPR RI Opinion Sentiment Research",
+                sentimenSub: "By Siti Aminatuzzuhriyah • Thesis / Final Project Research",
+                sentimenCaption: "Text processing scheme and topic modeling.",
+                sentimenQ1: "The Root of Research Concern",
+                sentimenA1: "The bustling conversations on platform X regarding the performance of the DPR RI contain diverse public emotions. I was challenged to transform this raw opinion text pile into structured insights using advanced InSet Vader with Runtime Score Normalization and LDA topic modeling.",
+                sentimenQ2: "Execution Process",
+                sentimenA2: "Starting from data collection, text cleaning from anomalies, applying custom score normalization formulas to handle social media slang, to topic modeling so main issue clusters are read precisely.",
+                sentimenQuote: "\"Processing social media data demands extra precision because human language in the digital world is highly dynamic and full of emotional nuances.\"",
+                sentimenQ3: "Final Results",
+                sentimenA3: "This research produced an analytical model and a complete thesis manuscript presenting objective, quantitative-based perspectives on diverse public perceptions of the legislative body.",
+
+                // Card 5
+                p5Title: "PN Balikpapan IT Risk Management",
+                p5Desc: "In-depth analysis and formulation of improvement recommendations to mitigate court information technology infrastructure risks.",
+                mrtiH1: "Digital Security Mitigation: PN Balikpapan IT Risk Management",
+                mrtiSub: "By Siti Aminatuzzuhriyah • IT Governance & Security Project",
+                mrtiCaption: "Vulnerability analysis and risk management documentation.",
+                mrtiQ1: "Project Background",
+                mrtiA1: "Information technology infrastructure in judicial institutions supports highly critical operations for the public and state. I designed this project to identify potential vulnerabilities and formulate risk mitigation strategies aligned with information security governance standards.",
+                mrtiQ2: "Analysis Process",
+                mrtiA2: "Through reviewing ongoing system workflows, regular risk level assessments, and formulating handling matrices, I uncovered various potential disruptions that might hinder digital justice services.",
+                mrtiQuote: "\"Information security in public institutions is not merely data protection, but the guardian of public trust in justice.\"",
+                mrtiQ3: "Impact",
+                mrtiA3: "The final result was a comprehensive mitigation document helping the institution maintain data confidentiality and ensure the continuous operation of the judicial system sustainably.",
+
+                // Card 6
+                p6Title: "BI Scholarship Decision Support System",
+                p6Desc: "Development of an intelligent multi-variable calculation-based system to determine Bank Indonesia scholarship recipient eligibility.",
+                spkH1: "Realizing Fair Selection: BI Scholarship Recipient DSS",
+                spkSub: "By Siti Aminatuzzuhriyah • Software Engineering Project",
+                spkCaption: "Decision support system web interface.",
+                spkQ1: "Concerns & System Needs",
+                spkA1: "The scholarship selection process often takes a long time and is vulnerable to subjectivity if done entirely manually. I wanted to present a solution in the form of an intelligent, transparent, and accountable web-based system.",
+                spkQ2: "Solution I Developed",
+                spkA2: "I implemented multi-criteria calculation algorithms to process various academic indicators and applicant economic conditions automatically and precisely into a web application software.",
+                spkQuote: "\"A good decision support system must be able to convert complex evaluation variables into objective and fair final results.\"",
+                spkQ3: "Real Impact",
+                spkA3: "This system successfully accelerated the internal selection process accountably while minimizing potential human error in providing final evaluations to prospective scholarship candidates.",
+
+                // Card 7
+                p7Title: "New Sepinggan Village Information System",
+                p7Desc: "Leading the team as Project Manager & Scrum Master in compiling backlogs, sprints, and resident information system planning.",
+                pmptiH1: "Leading the Team as Scrum Master: New Sepinggan Village Information System",
+                pmptiSub: "Oleh Siti Aminatuzzuhriyah • Information Systems Management Project",
+                pmptiCaption: "Sprint planning and project management documentation.",
+                pmptiQ1: "Project Leadership Challenges",
+                pmptiA1: "Resident administrative services at the village level require structured information systems to be efficient and accessible. In this project, I took direct roles as Project Manager and Scrum Master to steer application development.",
+                pmptiQ2: "Agile Execution & Methodology",
+                pmptiA2: "I led product backlog compilation, managed sprint cycles, and organized agile team task delegation so every resident information system module was completed on schedule.",
+                pmptiQuote: "\"The success of a technology project heavily relies on open communication and team coordination adaptable to change.\"",
+                pmptiQ3: "Results & Learnings",
+                pmptiA3: "This project successfully produced neat management documents along with resident information system prototypes, while sharpening my leadership skills in cross-functional team collaboration.",
+
+                // Card 8
+                p8Title: "Used Vehicle Price Analysis",
+                p8Desc: "Complex dataset processing and interactive visualization using Python to uncover market price determining factors.",
+                sainsH1: "Uncovering Market Patterns: Predictive Analysis of Used Vehicle Prices",
+                sainsSub: "By Siti Aminatuzzuhriyah • Data Science Exploration",
+                sainsCaption: "Vehicle price variable correlation visualization.",
+                sainsQ1: "Analysis Background",
+                sainsA1: "Fluctuations in used motor vehicle market prices are influenced by complex hidden variables. I used Python to unpack multivariate datasets and uncover dominant determining factors.",
+                sainsQ2: "Execution Process",
+                sainsA2: "Starting from large dataset cleaning, descriptive statistical analysis, to feature correlation mapping using Python analytical libraries like Pandas and Seaborn.",
+                sainsQuote: "\"Deep data analysis can transform random market numbers into valuable insights for economic decision-making.\"",
+                sainsQ3: "Impact & Benefits",
+                sainsA3: "This project produced predictive insights in the form of analysis scripts and graphic visualizations helping consumers and industry players establish rational vehicle fair value estimates.",
+
+                // Card 9
+                p9Title: "PN Balikpapan IT Governance",
+                p9Desc: "Comprehensive evaluation design and IT service management to improve district court operational efficiency.",
+                tkmtiH1: "Technology Performance Evaluation: PN Balikpapan IT Governance",
+                tkmtiSub: "By Siti Aminatuzzuhriyah • IT Service Evaluation Project",
+                tkmtiCaption: "Capability audit and service governance report.",
+                tkmtiQ1: "Evaluation Objectives",
+                tkmtiA1: "This evaluation project was undertaken to measure the effectiveness of IT governance and service management in judicial institutions based on applicable international standard frameworks.",
+                tkmtiQ2: "Audit Process & Gap Analysis",
+                tkmtiA2: "I performed capability audits on ongoing service processes, analyzed performance gaps, and formulated strategic recommendations to enhance digital service quality.",
+                tkmtiQuote: "\"Mature IT governance is the main bridge to ensure every technology investment truly boosts public service quality.\"",
+                tkmtiQ3: "Results",
+                tkmtiA3: "The comprehensive IT governance structuring report successfully helped the institution optimize digital services securely, measurably, and with sound institutional standards.",
+
+                // Card 10
+                p10Title: "Photography Portfolio Website",
+                p10Desc: "Responsive interface development and software core feature determination for a visual work exhibition platform.",
+                cloudH1: "Aesthetics at the Edge of Code: Photography Portfolio Website",
+                cloudSub: "By Siti Aminatuzzuhriyah • Creative Web Development Project",
+                cloudCaption: "Portfolio web gallery user interface view.",
+                cloudQ1: "Website Creation Idea",
+                cloudA1: "Visual works need a clean, minimalist, and aesthetic digital showcase space. I built this project specifically as a personal photography portfolio platform blending visual beauty with reliable web performance.",
+                cloudQ2: "Development Focus",
+                cloudA2: "Development focused on designing responsive image gallery layouts, optimizing visual assets for fast page load times, and comfortable browsing experiences across device screen sizes.",
+                cloudQuote: "\"Good web design acts as an invisible frame strengthening the beauty of the art within it.\"",
+                cloudQ3: "Results",
+                cloudA3: "An elegant, functional web portfolio platform providing a memorable professional digital space to showcase various visual works to the public and potential clients.",
+
+                // Card 11
+                p11Title: "UHAMKA Student Academic Performance",
+                p11Desc: "Application of Decision Tree method to analyze student graduation patterns and academic performance.",
+                akH1: "Prediction & Study Patterns: UHAMKA Student Academic Performance (Decision Tree)",
+                akSub: "By Siti Aminatuzzuhriyah • Machine Learning Research",
+                akCaption: "Decision Tree model visualization.",
+                akQ1: "Research Background",
+                akA1: "This quantitative research aimed to analyze graduation patterns and map determining success factors for UHAMKA students' academic performance through a structured Machine Learning approach.",
+                akQ2: "Algorithm Application",
+                akA2: "I processed academic historical data carefully, selected important influencing attributes, and applied Decision Tree classification algorithms to discover student study pattern decision rules.",
+                akQuote: "\"The use of machine learning in education opens great opportunities to detect potential problems early before impacting student studies.\"",
+                akQ3: "Institutional Impact",
+                akA3: "The resulting decision tree model successfully helped educational institution authorities recognize student performance indicators so preventive guidance steps could be taken timely.",
+
+                // Card 12
+                p12Title: "Semester Expense Analysis & Narration",
+                p12Desc: "Visualization of real expense data across semesters, revealing the highest peak of expenses in semester 3.",
+                workerH1: "Student Financial Journey: Semester Expense Analysis & Narration",
+                workerSub: "By Siti Aminatuzzuhriyah • Personal Data Storytelling Project",
+                workerCaption: "Per-semester expense data visualization chart.",
+                workerQ1: "The Origin of This Data Story",
+                workerA1: "This data storytelling project was born from real personal expense logs in every lecture semester. I wanted to weave those daily financial figures into a meaningful narrative.",
+                workerQ2: "Interesting Findings",
+                workerA2: "Through per-semester data grouping and visualization chart creation, a unique finding was uncovered where the highest expense peak occurred in semester 3 due to increased academic support needs.",
+                workerQuote: "\"Expense figures, when recorded and visualized well, can tell the story of someone's financial maturity journey.\"",
+                workerQ3: "Reflection & Impact",
+                workerA3: "This work not only presents interactive data visualization but also provides deep financial awareness to evaluate past expense categories and plan wiser college finances."
+            }
+        };
+
+        // --- MANAJEMEN TEMA & BAHASA BERDAMPINGAN (LOCALSTORAGE) ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            const savedLang = localStorage.getItem('lang') || 'id';
+            setLanguage(savedLang);
+        });
+
+        function setTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem('theme', theme);
+
+            const btnLight = document.getElementById('theme-light');
+            const btnDark = document.getElementById('theme-dark');
+
+            if(theme === 'light') {
+                btnLight.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnDark.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnDark.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnLight.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+        }
+
+        let currentLang = localStorage.getItem('lang') || 'id';
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            const btnId = document.getElementById('lang-id');
+            const btnEn = document.getElementById('lang-en');
+            if(lang === 'id') {
+                btnId.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnEn.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnEn.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnId.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        function openStory(storyId) {
+            const gridView = document.getElementById('portfolio-grid-view');
+            const storyView = document.getElementById('portfolio-story-view');
+            const storyBody = document.getElementById('story-body-content');
+            
+            // Ambil konten dari template tersembunyi
+            const sourceHtml = document.getElementById(storyId).innerHTML;
+            storyBody.innerHTML = sourceHtml;
+            
+            // Update terjemahan secara instan di dalam konten cerita yang baru dimuat sesuai bahasa aktif
+            storyBody.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+
+            // Transisi mulus ke halaman cerita
+            storyView.classList.remove('hidden');
+            setTimeout(() => {
+                storyView.classList.remove('opacity-0');
+                gridView.classList.add('opacity-0');
+            }, 10);
+
+            // Scroll ke atas halaman cerita
+            storyView.scrollTop = 0;
+        }
+
+        function closeModal() {
+            // Kompatibilitas jika fungsi dipanggil
+        }
+
+        function closeStory() {
+            const gridView = document.getElementById('portfolio-grid-view');
+            const storyView = document.getElementById('portfolio-story-view');
+            
+            storyView.classList.add('opacity-0');
+            gridView.classList.remove('opacity-0');
+            
+            setTimeout(() => {
+                storyView.classList.add('hidden');
+            }, 500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Aminatuzzuhriyah - Jejak Pengalaman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-bg': '#FDFBF7',
+                        'soft-text': '#4A4C49',
+                        'sage': '#9EAB8A',
+                        'sage-dark': '#7A8768',
+                        'taupe': '#D3CDC1',
+                        'card-bg': '#F5F3EC',
+                        'dark-bg': '#121212',
+                        'dark-card': '#1E1E1E',
+                        'dark-text': '#E0E0E0',
+                    },
+                    fontFamily: {
+                        'elegant': ['Lora', 'serif'],
+                        'sans': ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-transition {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-justify-clean {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* Dark Mode Manual Overrides */
+        .dark body { background-color: #121212; color: #E0E0E0; }
+        .dark nav { background-color: rgba(18, 18, 18, 0.85) !important; border-color: rgba(255, 255, 255, 0.1); }
+        .dark .bg-card-bg { background-color: #1E1E1E !important; }
+        .dark .bg-soft-bg { background-color: #121212 !important; }
+        .dark .bg-white { background-color: #1E1E1E !important; color: #E0E0E0 !important; border-color: rgba(255,255,255,0.1) !important; }
+        .dark .text-slate-800 { color: #F3F4F6 !important; }
+        .dark .text-slate-500, .dark .text-soft-text { color: #A0A0A0 !important; }
+        .dark .border-taupe\/30 { border-color: rgba(255,255,255,0.15) !important; }
+    </style>
+</head>
+<body class="bg-soft-bg text-soft-text font-sans antialiased overflow-x-hidden page-transition">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-soft-bg/80 backdrop-blur-md border-b border-taupe/30 transition-all duration-300">
+        <div class="flex justify-between items-center py-5 px-10 max-w-6xl mx-auto">
+            <a href="../" class="font-elegant italic font-semibold text-2xl text-sage-dark tracking-wide">zuhriyah.</a>
+            <div class="flex items-center space-x-6 text-sm font-medium">
+                <div class="space-x-8 hidden md:block">
+                    <a href="../" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navAbout">Tentang</a>
+                    <a href="../karya/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navWorks">Karya</a>
+                    <a href="../experience/" class="text-sage-dark font-semibold" data-i18n="navExp">Pengalaman</a>
+                    <a href="../kompetisi/" class="relative group hover:text-sage-dark transition duration-300" data-i18n="navComp">Kompetisi</a>
+                </div>
+                
+                <!-- Toggle Bahasa & Tema Berdampingan -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setLanguage('id')" id="lang-id" class="px-2.5 py-1 rounded-full transition-all text-sage-dark">ID</button>
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition-all text-sage-dark/60">EN</button>
+                    </div>
+
+                    <div class="flex items-center border border-sage/50 rounded-full p-0.5 text-xs font-semibold">
+                        <button onclick="setTheme('light')" id="theme-light" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark" title="Light Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"></path>
+                            </svg>
+                        </button>
+                        <button onclick="setTheme('dark')" id="theme-dark" class="w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60" title="Dark Mode">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="../kontak/" class="hidden md:inline-block px-5 py-2.5 border border-sage text-sage-dark rounded-full hover:bg-sage hover:text-white transition-all duration-300" data-i18n="navChat">Mari Berbincang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pengalaman Section -->
+    <section class="py-32 bg-white min-h-screen">
+        <div class="max-w-7xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16">
+                <h2 class="font-elegant text-4xl text-slate-800 mb-4" data-i18n="expTitle">Jejak Pengalaman</h2>
+                <div class="w-16 h-[2px] bg-sage mx-auto mb-6"></div>
+                <p class="text-soft-text font-light max-w-2xl mx-auto text-justify-clean" data-i18n="expSub">Sebuah perjalanan dalam mengembangkan kapasitas diri melalui peran akademis, kepemimpinan organisasi, hingga pemberdayaan komunitas.</p>
+            </div>
+
+            <!-- Kategori 1: Akademik & Profesional -->
+            <h3 class="text-2xl font-elegant text-sage-dark mb-8 border-b border-taupe/30 pb-2" data-i18n="catAcademic">Akademik & Profesional</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/asisten dosen mata kuliah tata kelola manajemen teknologi informasi.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Asisten Dosen Manajemen TI"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp1Title">Asisten Dosen Manajemen TI</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp1Desc">Prodi SI Kelas B, Angkatan 2023 (TA 2025/2026).</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/kerja praktik.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Kerja Praktik"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp2Title">Kerja Praktik Kec. Long Ikis</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp2Desc">Perencanaan strategis SI pada bidang umum & kepegawaian.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/asisten dosen mata kuliah kalkulus.jpeg" alt="Asisten Dosen Kalkulus 1" class="w-full h-full object-cover group-hover:scale-105 transition"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp3Title">Asisten Dosen Kalkulus 1</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp3Desc">Tahun Ajaran Ganjil 2023/2024.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/asisten dosen mata kuliah mrti.png" alt="Asisten Dosen Manajemen Risiko TI" class="w-full h-full object-cover group-hover:scale-105 transition"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp4Title">Asisten Dosen Manajemen Risiko TI</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp4Desc">Prodi SI Kelas A, Angkatan 2023 (TA 2025/2026).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 2: Kepemimpinan & Organisasi -->
+            <h3 class="text-2xl font-elegant text-sage-dark mb-8 border-b border-taupe/30 pb-2" data-i18n="catLeadership">Kepemimpinan & Kepanitiaan</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/ketua himpunan.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Ketua Himpunan"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp5Title">Ketua Himpunan Mahasiswa SI</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp5Desc">Kabinet Istanava Periode 2024-2025.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/km itk.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Kementerian PSDM"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp6Title">Staff Kementerian PSDM</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp6Desc">Keluarga Mahasiswa ITK Periode 2024-2025.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/sekretaris musyawarah wilayah permikomnas kalimantan ke 7.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Sekretaris Muswil"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp7Title">Sekretaris Muswil Ke-7</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp7Desc">Permikomnas Wilayah Kalimantan.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/hut km itk 11.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="HUT KM ITK"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp8Title">Staff Ahli Kestari</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp8Desc">Kepanitiaan HUT KM ITK ke-11.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/spin etam 24.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="SPIn ETAM 2024"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp9Title">Steering Commite Kestari</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp9Desc">Kepanitiaan SPIn ETAM Tahun 2024.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/spin etam 2023.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="SPIn ETAM 2023"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp10Title">Staff Divisi Kestari</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp10Desc">Kepanitiaan SPIn ETAM Tahun 2023.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/delegasi balikpapan training or trainers.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="ToT"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp11Title">Delegasi Balikpapan ToT</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp11Desc">Training of Trainers oleh Rotary & Generation Girl di Jakarta.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kategori 3: Public Speaking & Fasilitator -->
+            <h3 class="text-2xl font-elegant text-sage-dark mb-8 border-b border-taupe/30 pb-2" data-i18n="catPublic">Public Speaking & Pelatihan</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/pemateri open talk prodi SI.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Open Talk SI"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp12Title">Pemateri Open Talk SI</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp12Desc">Fokus: Balancing academics, competitions, organizations.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/pemateri pdo prodi SI.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="PMO SI"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp13Title">Pemateri PMO SI</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp13Desc">Pelatihan Manajemen Organisasi Prodi Sistem Informasi.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/pemateri pelatihan dasar organisasi prodi teknik logistik.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="PMO Logistik"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp14Title">Pemateri PMO Logistik</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp14Desc">Pelatihan Manajemen Organisasi Teknik Logistik.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/pemateri pelatihan dasar organisasi prodi statistika.jpeg" alt="Pemateri PMO Statistika" class="w-full h-full object-cover group-hover:scale-105 transition"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp15Title">Pemateri PMO Statistika</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp15Desc">Pelatihan Manajemen Organisasi Prodi Statistika.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/personal asistant pemateri generation girl.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Personal Assistant"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp16Title">Personal Assistant Pemateri</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp16Desc">Generation Girl (Acara di ITK & SMAN 1 Balikpapan).</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/mc open talk SI.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="MC Open Talk"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp17Title">MC Open Talk</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp17Desc">Prodi Sistem Informasi Tahun 2024.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/mc opening inspace 23.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="MC INSPACE"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp18Title">MC Opening INSPACE</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp18Desc">Acara pembukaan INSPACE 2023.</p>
+                    </div>
+                </div>
+                <div class="group bg-card-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition border border-taupe/20">
+                    <div class="h-40 overflow-hidden"><img src="../pengalaman/moderator inspace 2024.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition" alt="Moderator Talkshow"></div>
+                    <div class="p-5">
+                        <h4 class="font-medium text-slate-800" data-i18n="exp19Title">Moderator Talkshow</h4>
+                        <p class="text-xs mt-1 text-soft-text" data-i18n="exp19Desc">INSPACE Tahun 2024.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script Interaktif Toggle Bahasa & Tema -->
+    <script>
+        const translations = {
+            id: {
+                navAbout: "Tentang",
+                navWorks: "Karya",
+                navExp: "Pengalaman",
+                navComp: "Kompetisi",
+                navChat: "Mari Berbincang",
+                expTitle: "Jejak Pengalaman",
+                expSub: "Sebuah perjalanan dalam mengembangkan kapasitas diri melalui peran akademis, kepemimpinan organisasi, hingga pemberdayaan komunitas.",
+                catAcademic: "Akademik & Profesional",
+                catLeadership: "Kepemimpinan & Kepanitiaan",
+                catPublic: "Public Speaking & Pelatihan",
+                
+                exp1Title: "Asisten Dosen Manajemen TI",
+                exp1Desc: "Prodi SI Kelas B, Angkatan 2023 (TA 2025/2026).",
+                exp2Title: "Kerja Praktik Kec. Long Ikis",
+                exp2Desc: "Perencanaan strategis SI pada bidang umum & kepegawaian.",
+                exp3Title: "Asisten Dosen Kalkulus 1",
+                exp3Desc: "Tahun Ajaran Ganjil 2023/2024.",
+                exp4Title: "Asisten Dosen Manajemen Risiko TI",
+                exp4Desc: "Prodi SI Kelas A, Angkatan 2023 (TA 2025/2026).",
+                
+                exp5Title: "Ketua Himpunan Mahasiswa SI",
+                exp5Desc: "Kabinet Istanava Periode 2024-2025.",
+                exp6Title: "Staff Kementerian PSDM",
+                exp6Desc: "Keluarga Mahasiswa ITK Periode 2024-2025.",
+                exp7Title: "Sekretaris Muswil Ke-7",
+                exp7Desc: "Permikomnas Wilayah Kalimantan.",
+                exp8Title: "Staff Ahli Kestari",
+                exp8Desc: "Kepanitiaan HUT KM ITK ke-11.",
+                exp9Title: "Steering Commite Kestari",
+                exp9Desc: "Kepanitiaan SPIn ETAM Tahun 2024.",
+                exp10Title: "Staff Divisi Kestari",
+                exp10Desc: "Kepanitiaan SPIn ETAM Tahun 2023.",
+                exp11Title: "Delegasi Balikpapan ToT",
+                exp11Desc: "Training of Trainers oleh Rotary & Generation Girl di Jakarta.",
+                
+                exp12Title: "Pemateri Open Talk SI",
+                exp12Desc: "Fokus: Balancing academics, competitions, organizations.",
+                exp13Title: "Pemateri PMO SI",
+                exp13Desc: "Pelatihan Manajemen Organisasi Prodi Sistem Informasi.",
+                exp14Title: "Pemateri PMO Logistik",
+                exp14Desc: "Pelatihan Manajemen Organisasi Teknik Logistik.",
+                exp15Title: "Pemateri PMO Statistika",
+                exp15Desc: "Pelatihan Manajemen Organisasi Prodi Statistika.",
+                exp16Title: "Personal Assistant Pemateri",
+                exp16Desc: "Generation Girl (Acara di ITK & SMAN 1 Balikpapan).",
+                exp17Title: "MC Open Talk",
+                exp17Desc: "Prodi Sistem Informasi Tahun 2024.",
+                exp18Title: "MC Opening INSPACE",
+                exp18Desc: "Acara pembukaan INSPACE 2023.",
+                exp19Title: "Moderator Talkshow",
+                exp19Desc: "INSPACE Tahun 2024."
+            },
+            en: {
+                navAbout: "About",
+                navWorks: "Works",
+                navExp: "Experience",
+                navComp: "Competitions",
+                navChat: "Let's Talk",
+                expTitle: "Experience Journey",
+                expSub: "A journey of developing personal capacity through academic roles, organizational leadership, and community empowerment.",
+                catAcademic: "Academic & Professional",
+                catLeadership: "Leadership & Committees",
+                catPublic: "Public Speaking & Training",
+                
+                exp1Title: "IT Management Teaching Assistant",
+                exp1Desc: "IS Study Program Class B, Batch 2023 (Academic Year 2025/2026).",
+                exp2Title: "Internship at Long Ikis Sub-District",
+                exp2Desc: "Strategic IS planning for general & personnel affairs.",
+                exp3Title: "Calculus 1 Teaching Assistant",
+                exp3Desc: "Odd Academic Semester 2023/2024.",
+                exp4Title: "IT Risk Management Teaching Assistant",
+                exp4Desc: "IS Study Program Class A, Batch 2023 (Academic Year 2025/2026).",
+                
+                exp5Title: "Head of IS Student Association",
+                exp5Desc: "Istanava Cabinet Period 2024-2025.",
+                exp6Title: "HRD Ministry Staff",
+                exp6Desc: "ITK Student Family Period 2024-2025.",
+                exp7Title: "Secretary of 7th Regional Meeting",
+                exp7Desc: "Permikomnas Kalimantan Region.",
+                exp8Title: "Secretariat Expert Staff",
+                exp8Desc: "11th ITK Student Family Anniversary Committee.",
+                exp9Title: "Secretariat Steering Committee",
+                exp9Desc: "SPIn ETAM Committee Year 2024.",
+                exp10Title: "Secretariat Division Staff",
+                exp10Desc: "SPIn ETAM Committee Year 2023.",
+                exp11Title: "Balikpapan ToT Delegate",
+                exp11Desc: "Training of Trainers by Rotary & Generation Girl in Jakarta.",
+                
+                exp12Title: "IS Open Talk Speaker",
+                exp12Desc: "Focus: Balancing academics, competitions, organizations.",
+                exp13Title: "IS Organization Management Speaker",
+                exp13Desc: "Information Systems Study Program Organizational Training.",
+                exp14Title: "Logistics Organization Management Speaker",
+                exp14Desc: "Logistics Engineering Organizational Training.",
+                exp15Title: "Statistics Organization Management Speaker",
+                exp15Desc: "Statistics Study Program Organizational Training.",
+                exp16Title: "Speaker Personal Assistant",
+                exp16Desc: "Generation Girl (Events at ITK & SMAN 1 Balikpapan).",
+                exp17Title: "Open Talk MC",
+                exp17Desc: "Information Systems Study Program Year 2024.",
+                exp18Title: "INSPACE Opening MC",
+                exp18Desc: "INSPACE 2023 Opening Event.",
+                exp19Title: "Talkshow Moderator",
+                exp19Desc: "INSPACE Year 2024."
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            setTheme(savedTheme);
+
+            const savedLang = localStorage.getItem('lang') || 'id';
+            setLanguage(savedLang);
+        });
+
+        function setTheme(theme) {
+            document.documentElement.className = theme;
+            localStorage.setItem('theme', theme);
+
+            const btnLight = document.getElementById('theme-light');
+            const btnDark = document.getElementById('theme-dark');
+
+            if(theme === 'light') {
+                btnLight.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnDark.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnDark.className = "w-7 h-7 rounded-full bg-sage text-white flex items-center justify-center transition-all shadow-sm";
+                btnLight.className = "w-7 h-7 rounded-full flex items-center justify-center transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('lang', lang);
+
+            const btnId = document.getElementById('lang-id');
+            const btnEn = document.getElementById('lang-en');
+            if(lang === 'id') {
+                btnId.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnEn.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            } else {
+                btnEn.className = "px-2.5 py-1 rounded-full bg-sage text-white transition-all shadow-sm";
+                btnId.className = "px-2.5 py-1 rounded-full transition-all text-sage-dark/60 hover:text-sage-dark";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
